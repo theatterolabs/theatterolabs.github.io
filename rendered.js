@@ -1,6 +1,3 @@
-
-<script>
-
 var scene,
     camera, fieldOfView, aspectRatio, nearPlane, farPlane,
     gobalLight, shadowLight, backLight,
@@ -437,4 +434,3 @@ function init(event){
   createBall();
   loop();
 }
-</script>
