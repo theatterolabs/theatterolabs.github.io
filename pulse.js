@@ -1,4 +1,4 @@
-<script>
+
         var historyArr, historyDatd;
         //Statistics start
         chart2 = new Highcharts.Chart('container2', {
@@ -201,8 +201,7 @@
             });
         });
 //line end
-    </script>
-    <script type="text/javascript">
+    
         var HeartFlag = 1;
         var timer = null,
             arr, stateData;
@@ -492,4 +491,3 @@
             }, 400);
         });
   //菜单栏弹出框end
-    </script>
