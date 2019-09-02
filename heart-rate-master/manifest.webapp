@@ -1,0 +1,19 @@
+{
+  "name": "Heart Rate",
+  "description": "Heart rate monitoring",
+  "type": "certified",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "lissyx",
+    "url": "https://github.com/lissyx/gaia/tree/heart-rate"
+  },
+  "permissions": {
+    "camera":{},
+    "settings":{"access": "readonly"}
+  },
+  "icons": {
+    "128": "/images/heart-rate.png"
+  },
+  "default_locale": "en-US",
+  "orientation": "portrait-primary"
+}
