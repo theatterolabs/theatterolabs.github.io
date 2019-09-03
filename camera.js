@@ -27,36 +27,52 @@ var camera = (function(){
     video.setAttribute("width", width);
     video.setAttribute("height", height);
 
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+   const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
-    window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+if (SUPPORTS_MEDIA_DEVICES) {
+  //Get the environment camera (usually the second one)
+  navigator.mediaDevices.enumerateDevices().then(devices => {
+  
+    const cameras = devices.filter((device) => device.kind === 'videoinput');
 
-    // ** for showing/hiding arrow ** 
-    var hidden = document.getElementById("arrow");
-    var buttonBar = document.getElementById("buttonBar");
-    var allowWebcam = document.getElementById("allowWebcam");
+    if (cameras.length === 0) {
+      throw 'No camera found on this device.';
+    }
+    const camera = cameras[cameras.length - 1];
 
-    if (navigator.getUserMedia){
-      navigator.getUserMedia({
-        video: true,
-        audio: false
-      }, function(stream){
-        if (video.mozSrcObject !== undefined) { // for Firefox
-          video.mozSrcObject = stream;
-        } else {
-          video.src = window.URL.createObjectURL(stream); 
-        }
-        hidden.style.display = "none";
-        hidden.className = "";
-        allowWebcam.style.display = "none";
+    // Create stream and get video track
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: camera.deviceId,
+        facingMode: ['user', 'environment'],
+        height: {ideal: 1080},
+        width: {ideal: 1920}
+      }
+    }).then(stream => {
+      const track = stream.getVideoTracks()[0];
 
-        buttonBar.className = "button";
+      //Create image capture object and get camera capabilities
+      const imageCapture = new ImageCapture(track)
+      const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
 
-        initCanvas(); 
-      }, errorCallback);
-      };
-  };
+        //todo: check if camera has a torch
 
+        //let there be light!
+        const btn = document.querySelector('.switch');
+        btn.addEventListener('click', function(){
+          track.applyConstraints({
+            advanced: [{torch: true}]
+          });
+        });
+      });
+    });
+  });
+  initCanvas();
+  
+  //The light will be on as long the track exists
+  
+  
+}
   function initCanvas(){
     canvas = document.getElementById("canvas");
     canvas.setAttribute("width", width);
