@@ -30,23 +30,12 @@ var HeartRate = {
 
   init: function heartrate_init() {
     var self = this;
-    var settings = window.navigator.mozSettings;
-    if (settings) {
-      var key = "deviceinfo.hardware";
-      var getPlatform = settings.createLock().get(key);
-      getPlatform.addEventListener('success', function onsuccess() {
-        var platform = getPlatform.result[key];
-        /* Nexus S has a bug, inverting red and blue channel */
-        if (platform == "herring") {
-          this._redOffset = 2;
-        }
-      });
     }
     var video = this.viewfinder;
     this.canvas = document.getElementById('image');
     this.ctx1 = this.canvas.getContext('2d');
     video.addEventListener("play", function() {
-      self._start = window.mozAnimationStartTime;
+      self._start = Date.now();
       self._maxRed = ((self.canvas.width * self.canvas.height) / self._inc) * 255.0;
       self.timerCallback(0);
     }, false);
@@ -75,11 +64,11 @@ var HeartRate = {
       this.ctx1.drawImage(this.viewfinder, 0, 0, this.canvas.width, this.canvas.height);
       this._imageData = this.ctx1.getImageData(0, 0, this.canvas.width, this.canvas.height);
       this._currsecs = this.viewfinder.currentTime;
-      this._iteration = this.viewfinder.mozPaintedFrames;
+      this._iteration = this.viewfinder.PaintedFrames;
       this.computeFrame();
     }
 
-    mozRequestAnimationFrame(function(ts) { self.timerCallback(ts); });
+    RequestAnimationFrame(function(ts) { self.timerCallback(ts); });
     // setTimeout(function() { self.timerCallback(0); }, 30);
   },
 
@@ -122,7 +111,7 @@ var HeartRate = {
 
   setSource: function heartrate_setSource(camera) {
     this.dbg("setSource: got camera: " + camera);
-    this.viewfinder.mozSrcObject = null;
+    this.viewfinder.SrcObject = null;
     this._timeoutId = 0;
 
     var viewfinder = this.viewfinder;
@@ -137,7 +126,7 @@ var HeartRate = {
 
     function gotPreviewScreen(stream) {
       this.dbg("gotPreviewScreen: stream: " + stream);
-      viewfinder.mozSrcObject = stream;
+      viewfinder.SrcObject = stream;
       viewfinder.play();
     }
 
@@ -159,10 +148,10 @@ var HeartRate = {
     }
 
     var options = {};
-    if (navigator.mozCameras != null) {
-      this._cameras = navigator.mozCameras.getListOfCameras();
+    if (navigator.Cameras != null) {
+      this._cameras = navigator.Cameras.getListOfCameras();
       options = {camera: this._cameras[this._camera]};
-      navigator.mozCameras.getCamera(options, gotCamera.bind(this));
+      navigator.Cameras.getCamera(options, gotCamera.bind(this));
     }
   },
 
@@ -178,7 +167,7 @@ var HeartRate = {
 
   pause: function heartrate_pause() {
     this.viewfinder.pause();
-    this.viewfinder.mozSrcObject = null;
+    this.viewfinder.SrcObject = null;
   },
 
   resume: function heartrate_resume() {
@@ -190,8 +179,8 @@ window.addEventListener('DOMContentLoaded', function HeartRateInit() {
   HeartRate.init();
 });
 
-document.addEventListener('mozvisibilitychange', function() {
-  if (document.mozHidden) {
+document.addEventListener('visibilitychange', function() {
+  if (document.Hidden) {
     HeartRate.pause();
   } else {
     HeartRate.resume();
