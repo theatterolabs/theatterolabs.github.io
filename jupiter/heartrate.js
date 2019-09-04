@@ -1,1 +1,121 @@
-var _0x2cf9=['length','shift','bright','time','hdnOn','value','innerHTML','toFixed','\x20BPM','--\x20BPM','pulse','bpmFinal','round','DOMContentLoaded','getUserMedia','then','forEach','kind','deviceId','catch','name','message','getElementById','video','width','height','getContext','bpm','srcObject','drawImage','push','now'];(function(_0x28cb75,_0x4bcc17){var _0x13748a=function(_0x2a2773){while(--_0x2a2773){_0x28cb75['push'](_0x28cb75['shift']());}};_0x13748a(++_0x4bcc17);}(_0x2cf9,0x6e));var _0x5108=function(_0x5a1ea7,_0x1b2b53){_0x5a1ea7=_0x5a1ea7-0x0;var _0x53e91e=_0x2cf9[_0x5a1ea7];return _0x53e91e;};var video,width,height,context,bpm;var arrHistogram=[];arrPulses=[];navigator['getUserMedia']=navigator[_0x5108('0x0')]||navigator['webkitGetUserMedia'];var constraints={'video':!![],'audio':![]};function initialize(){navigator['mediaDevices']['enumerateDevices']()[_0x5108('0x1')](function(_0x26c666){_0x26c666[_0x5108('0x2')](function(_0x4cbc11){if(_0x4cbc11[_0x5108('0x3')]=='videoinput')constraints['video']={'optional':[{'sourceId':_0x4cbc11[_0x5108('0x4')]},{'fillLightMode':'on'}]};});initializeVideo();})[_0x5108('0x5')](function(_0x44b31e){console['log'](_0x44b31e[_0x5108('0x6')]+':\x20'+_0x44b31e[_0x5108('0x7')]);});}function initializeVideo(){video=document[_0x5108('0x8')](_0x5108('0x9'));width=video[_0x5108('0xa')];height=video[_0x5108('0xb')];var _0x3717e1=document[_0x5108('0x8')]('canvasvideo');context=_0x3717e1[_0x5108('0xc')]('2d');bpm=document['getElementById'](_0x5108('0xd'));navigator[_0x5108('0x0')](constraints,startStream,function(){});}function startStream(_0x506eda){video[_0x5108('0xe')]=_0x506eda;video['play']();requestAnimationFrame(draw);}function draw(){var _0x5d90b3=readFrame();if(_0x5d90b3){getRate(_0x5d90b3['data']);}requestAnimationFrame(draw);}function readFrame(){try{context[_0x5108('0xf')](video,0x0,0x0,width,height);}catch(_0x2baee7){return null;}return context['getImageData'](0x0,0x0,width,height);}function getRate(_0x2eb0dd){var _0x49e844=_0x2eb0dd['length'];var _0x1f47f4=0x0;for(var _0x69e4d4=0x0,_0x2f399b=0x0;_0x2f399b<_0x49e844;_0x69e4d4++,_0x2f399b+=0x4){_0x1f47f4+=_0x2eb0dd[_0x2f399b]+_0x2eb0dd[_0x2f399b+0x1]+_0x2eb0dd[_0x2f399b+0x2];}arrHistogram[_0x5108('0x10')]({'bright':_0x1f47f4/_0x49e844,'time':Date[_0x5108('0x11')]()});while(arrHistogram[_0x5108('0x12')]>0x140){arrHistogram[_0x5108('0x13')]();}var _0x5beb89=arrHistogram[0x0][_0x5108('0x14')];var _0x221b54=arrHistogram[0x0][_0x5108('0x14')];arrHistogram[_0x5108('0x2')](function(_0x139f25){if(_0x139f25[_0x5108('0x14')]>_0x5beb89)_0x5beb89=_0x139f25[_0x5108('0x14')];if(_0x139f25[_0x5108('0x14')]<_0x221b54)_0x221b54=_0x139f25['bright'];});var _0x362359=_0x221b54*0.6+_0x5beb89*0.4;var _0x11faf5=_0x221b54*0.4+_0x5beb89*0.6;var _0x3b001e=0x0,_0x2a2cbb=0x0;var _0x1ef44c=undefined;var _0x574af6=undefined;var _0x549de3=undefined;arrHistogram[_0x5108('0x2')](function(_0x4b966e,_0x5247fd){if(_0x1ef44c!=!![]&&_0x4b966e[_0x5108('0x14')]>_0x11faf5){_0x1ef44c=!![];_0x549de3=_0x5247fd;}if(_0x1ef44c!=![]&&_0x4b966e[_0x5108('0x14')]<_0x362359){if(_0x574af6!==undefined&&_0x549de3!==undefined){_0x3b001e+=arrHistogram[_0x5247fd][_0x5108('0x15')]-arrHistogram[_0x574af6][_0x5108('0x15')];_0x2a2cbb++;}_0x1ef44c=![];_0x574af6=_0x5247fd;}});if(_0x2a2cbb){var _0x477b1d=0xea60/(_0x3b001e/_0x2a2cbb);if(_0x477b1d>0x28&&_0x477b1d<0x78&&document[_0x5108('0x8')](_0x5108('0x16'))[_0x5108('0x17')]==0x1){arrPulses[_0x5108('0x10')]({'pulse':_0x477b1d});}bpm[_0x5108('0x18')]=_0x477b1d[_0x5108('0x19')](0x0)+_0x5108('0x1a');}else{bpm[_0x5108('0x18')]=_0x5108('0x1b');}}function getPulse(_0x1f03f7){var _0x36874d=0x0;arrPulses['forEach'](function(_0xb8ae6c){_0x36874d+=_0xb8ae6c[_0x5108('0x1c')];});document[_0x5108('0x8')](_0x5108('0x1d'))['innerHTML']=Math[_0x5108('0x1e')](_0x36874d/arrPulses[_0x5108('0x12')])+Math['round'](_0x1f03f7)+_0x5108('0x1a');arrPulses=[];}addEventListener(_0x5108('0x1f'),initialize);
+var video, width, height, context, bpm;
+var arrHistogram = []; arrPulses = [];
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+var constraints = {video: true, audio:false};
+
+function initialize() {
+navigator.mediaDevices.enumerateDevices().then(function(devices) {
+  devices.forEach(function(device) {
+    if (device.kind=="videoinput" /*&& constraints.video===true*/)
+      constraints.video = { optional: [{sourceId: device.deviceId}, { fillLightMode: "on" }] };
+  });
+  initializeVideo();
+}).catch(function(err) {
+  console.log(err.name + ": " + err.message);
+});
+}
+  
+  
+  function initializeVideo() {
+    video = document.getElementById("video");
+    width = video.width;
+    height = video.height;
+    var canvas = document.getElementById("canvasvideo");
+    context = canvas.getContext("2d");
+
+    bpm = document.getElementById("bpm");
+    
+    navigator.getUserMedia(constraints, startStream, function () {});
+  }
+
+  function startStream(stream) {
+    video.srcObject = stream;
+    video.play();
+    requestAnimationFrame(draw);
+  }
+
+  function draw() {
+    var frame = readFrame();
+    if (frame) {
+      getRate(frame.data);      	  
+    }
+    requestAnimationFrame(draw);
+  }
+
+  function readFrame() {
+    try {
+      context.drawImage(video, 0, 0, width, height);
+    } catch (e) {
+      return null;
+    }
+
+    return context.getImageData(0, 0, width, height);
+  }
+
+  function getRate(data) {
+    var len = data.length;
+    var sum = 0;
+
+	//get R G B 
+    for (var i = 0, j = 0; j < len; i++, j += 4) {
+      sum += data[j] + data[j+1] + data[j+2] + data[j+3]; //considering alpha
+    }
+	
+    arrHistogram.push({ bright : sum/len, time : Date.now() });
+    while (arrHistogram.length>320) {arrHistogram.shift();}
+    
+	//calculate max and min
+    var max = arrHistogram[0].bright;
+    var min = arrHistogram[0].bright;
+    arrHistogram.forEach(function(v) {
+      if (v.bright>max) max=v.bright;
+      if (v.bright<min) min=v.bright;
+    });
+    // thresholds for bpm
+    var lo = min*0.6 + max*0.4;
+    var hi = min*0.4 + max*0.6;
+    var pAvg = 0, pCount = 0;
+    
+		
+				
+	// calculate the bpm
+    var isHigh = undefined;
+    var PrevHigh = undefined;
+    var PrevLow = undefined;
+    arrHistogram.forEach(function(v, x) {
+      if (isHigh!=true && v.bright>hi) {
+        isHigh = true;
+        PrevLow = x;
+      }
+      if (isHigh!=false && v.bright<lo) {
+        if (PrevHigh !== undefined && PrevLow !== undefined) {
+          pAvg += arrHistogram[x].time-arrHistogram[PrevHigh].time;
+          pCount++;
+        }
+        isHigh = false;
+        PrevHigh = x;
+      }
+    });
+	
+    if (pCount) {
+      var pulseRate = 60000 / (pAvg / pCount);
+	  
+	  if(pulseRate>40 && pulseRate<120 && document.getElementById("hdnOn").value == 1) {
+			arrPulses.push({pulse: pulseRate});
+		  }
+	  bpm.innerHTML = pulseRate.toFixed(0)+" BPM";
+    
+    } else {
+      bpm.innerHTML = "-- BPM";
+    }
+  }
+
+  function getPulse(err){
+	  var s=0;
+	  arrPulses.forEach(function(v){s+=v.pulse;});
+	  document.getElementById("bpmFinal").innerHTML = (Math.round(s/arrPulses.length)+Math.round(err)) + " BPM";
+	  arrPulses = [];
+  }
+  
+addEventListener("DOMContentLoaded", initialize);
