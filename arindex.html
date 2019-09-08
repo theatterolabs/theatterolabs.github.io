@@ -1,16 +1,47 @@
-<head>
-<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/agusalex/arjs-alphachannel-video@master/styles.css" />
+   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.0/dist/aframe-extras.min.js"></script>
-</head>
+    <!-- <script src="aframe-ar.js"></script> use this (v1.6) if this demo ever breaks-->
+  </head>
+  <body>
+    <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
+    <a-scene >
+    <a-assets>
+        <video id="alpha" autoplay loop="true" src="assets/AlphaTestVideo.webm"></video>
+    </a-assets>
 
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs>
-    <!-- create your content here. just a box for now -->
-   <a-video id="vidhandler" autoplay loop="true" src="https://theatterolabs.github.io/lakme.mp4"></a-video>
-
+    <!-- Using the asset management system. -->
+   
+    <a-marker-camera preset='hiro'>
+           <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#alpha">
+      <video scale= "20 20 1" src="#source"></video></a-video>
+    </a-marker-camera>
+    </a-scene>
+  </body>
   
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset='hiro'></a-marker-camera>
-  </a-scene>
-</body>
+  <script>
+    
+    function play(id){
+      var aVideoAsset = document.querySelector('#' + id);
+      aVideoAsset.play().catch(function (error) {
+        aVideoAsset.pause();
+        hideOrShow("playButton");
+
+      });
+      aVideoAsset.setAttribute('loop', 'false');
+      hideOrShow('playButton');
+    }
+    function hideOrShow(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+ 
+  </script>
+</html> 
