@@ -8,14 +8,14 @@
   </head>
   <body>
     <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    <a-assets>
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    <a-assets>
         <video id="alpha" autoplay loop="true" src="https://theatterolabs.github.io/lakme.mp4"></video>
     </a-assets>
 
     <!-- Using the asset management system. -->
    
 		<a-marker type='barcode' value='5'>
-           <a-video id = "vid" rotation = "-90 0 0" scale="1.8 .6 1" src="#alpha">
+           <a-video id = "vid" rotation = "-90 0 0" scale="1.8 1.8 1" src="#alpha">
       <video scale= "1 1 1" src="#source"></video></a-video>
     </a-marker>
     <a-entity camera></a-entity>
