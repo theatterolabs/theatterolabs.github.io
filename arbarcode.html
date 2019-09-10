@@ -1,27 +1,25 @@
 <html>
   <head>
      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/agusalex/arjs-alphachannel-video@master/styles.css" />
-   <script src="https://cdn.jsdelivr.net/npm/aframe@0.9.2/dist/aframe-v0.9.2.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/build/aframe-ar.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@master/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@master/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.0/dist/aframe-extras.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/stemkoski/AR-Examples@master/jsartoolkit5/artoolkit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/stemkoski/AR-Examples@master/jsartoolkit5/artoolkit.api.js"></script>
 
-    <!-- <script src="aframe-ar.js"></script> use this (v1.6) if this demo ever breaks-->
   </head>
   <body>
     <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
-    <a-scene embedded artoolkit=’sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;’ >
-    <a-assets>
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    <a-assets>
         <video id="alpha" autoplay loop="true" src="https://theatterolabs.github.io/lakme.mp4"></video>
     </a-assets>
 
     <!-- Using the asset management system. -->
    
-    <a-marker-camera type='barcode' value='5'>
+		<a-marker type='barcode' value='5'>
            <a-video id = "vid" rotation = "-135 0 0" scale="1.8 .6 1" src="#alpha">
       <video scale= "1 1 1" src="#source"></video></a-video>
-    </a-marker-camera>
+    </a-marker>
+    <a-entity camera></a-entity>
+
     </a-scene>
   </body>
   
