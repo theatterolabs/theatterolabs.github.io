@@ -1,8 +1,8 @@
 <html>
   <head>
      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/agusalex/arjs-alphachannel-video@master/styles.css" />
-   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.5.0/aframe/build/aframe-ar.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.0/dist/aframe-extras.min.js"></script>
     <!-- <script src="aframe-ar.js"></script> use this (v1.6) if this demo ever breaks-->
   </head>
@@ -15,10 +15,10 @@
 
     <!-- Using the asset management system. -->
    
-    <a-marker type='barcode' value='5'>
+    <a-marker-camera type='barcode' value='5'>
            <a-video id = "vid" rotation = "-135 0 0" scale="1.8 .6 1" src="#alpha">
       <video scale= "1 1 1" src="#source"></video></a-video>
-    </a-marker>
+    </a-marker-camera>
     </a-scene>
   </body>
   
