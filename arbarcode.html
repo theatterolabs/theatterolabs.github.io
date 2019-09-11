@@ -11,13 +11,13 @@
     <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
     <a-scene vr-mode-ui="enabled: false" embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    
 	<a-assets>
-        	<video id="alpha" autoplay loop="true" src="https://theatterolabs.github.io/lakme.mp4"></video>
+        	<video id="alpha" autoplay loop="true" src="https://theatterolabs.github.io/modi.mp4"></video>
 	</a-assets>
 
     <!-- Using the asset management system. -->
    
 	<a-anchor type='barcode' value='5' smooth="true">
-           	<a-video id = "vid" rotation = "-90 0 0" scale="7 5 1" position="0 .5 0" src="#alpha">
+           	<a-video id = "vid" rotation = "-90 0 0" scale="5.3 3 1" position="0 1 0" src="#alpha">
       			<video scale= "1 1 1" src="#source"></video>
 		</a-video>
     	</a-anchor>
