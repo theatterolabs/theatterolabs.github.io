@@ -51,26 +51,5 @@
     </a-scene>
   </body>
   
-  <script>
-	      
-    function play(id){
-      var aVideoAsset = document.querySelector('#' + id);
-      aVideoAsset.play().catch(function (error) {
-        aVideoAsset.pause();
-        hideOrShow("playButton");
 
-      });
-      aVideoAsset.setAttribute('loop', 'false');
-      hideOrShow('playButton');
-    }
-    function hideOrShow(id) {
-  var x = document.getElementById(id);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
- 
-  </script>
 </html> 
