@@ -30,19 +30,50 @@
             });		
             
         </script>
+	  
+	  	    <script>
+	    
+	     AFRAME.registerComponent("listener", {
+    init: function() {
+      this.target = document.querySelector("#invitation");
+      this.prevPosition = null;
+      this.prevRotation = null;
+    },
+   tick: function() {
+     if (this.el.object3D.visible) {
+       this.target.setAttribute('visible', 'true')
+       if(this.prevPosition) {
+         this.target.object3D.position.lerp(this.prevPosition, 0.1)
+         let rot = this.target.object3D.rotation.toVector3().lerp(this.prevRotation, 0.1)
+         this.target.object3D.rotation.setFromVector3(rot)
+       } else {
+         this.target.setAttribute('position', this.el.getAttribute('position'))
+         this.target.setAttribute('rotation', this.el.getAttribute('rotation'))
+       }
+       this.prevPosition = this.el.object3D.position
+       this.prevRotation = this.el.object3D.rotation
+      } else {
+       this.target.setAttribute('visible', 'false')
+        this.prevPosition = null;
+        this.prevRotation = null;
+      }
+   }
+ })
+	    </script>
+	  
   </head>
   <body>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    
 	<a-assets>
-                <video preload="none" id="invitation" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
+                <video preload="none" id="invitation" response-type="arraybuffer" loop="false" src="https://theatterolabs.github.io/modi.mp4" crossorigin webkit-playsinline playsinline controls>
     	</a-assets>
 
     <!-- Using the asset management system. -->
    
-		<a-anchor id="marker1" type='barcode' value='5' video-vidhandler smoothing='true'>
+		<a-anchor id="marker1" type='barcode' value='5' video-vidhandler smoothing='true' listner>
            <a-video id = "vid" rotation = "-90 0 0" scale="9 7 1" position="0 .5 0"src="#invitation">
       <video scale= "1 1 1" src="#source"></video></a-video>
-    </a-anchorr>
+    </a-anchor>
     <a-entity camera></a-entity>
 
     </a-scene>
