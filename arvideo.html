@@ -58,7 +58,7 @@
             
             <!-- Invitation Video Marker -->
 
-            <a-marker id="marker1" type='barcode' value='1028' video-vidhandler material arjs-anchor arjs-hit-testing>
+            <a-marker id="marker1" type='barcode' value='0' video-vidhandler material arjs-anchor arjs-hit-testing>
                 <!--<a-box position='0 0 0' material='color: red;'></a-box>-->
                 <a-plane scale = "5.3 3 1" position='0 0 0' rotation="-90 0 0" material='transparent:true;src:#invitation' controls></a-plane>
             </a-marker>
@@ -67,8 +67,11 @@
             <!-- Camera -->
 
             <a-entity camera></a-entity>
+        <canvas class="a-canvas" data-aframe-canvas="true" width="1788" height="1452"></canvas>
+		<a-entity light="" data-aframe-default-light="" aframe-injected=""></a-entity>
+		<a-entity light="" position="" data-aframe-default-light="" aframe-injected=""></a-entity>
+	    </a-scene>
 
-        </a-scene>
 
 
     </body>
