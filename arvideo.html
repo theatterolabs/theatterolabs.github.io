@@ -38,6 +38,37 @@
             });		
             
         </script>
+	    
+	    <script>
+	    
+	     AFRAME.registerComponent("listener", {
+    init: function() {
+      this.target = document.querySelector("#invitation");
+      this.prevPosition = null;
+      this.prevRotation = null;
+    },
+   tick: function() {
+     if (this.el.object3D.visible) {
+       this.target.setAttribute('visible', 'true')
+       if(this.prevPosition) {
+         this.target.object3D.position.lerp(this.prevPosition, 0.1)
+         let rot = this.target.object3D.rotation.toVector3().lerp(this.prevRotation, 0.1)
+         this.target.object3D.rotation.setFromVector3(rot)
+       } else {
+         this.target.setAttribute('position', this.el.getAttribute('position'))
+         this.target.setAttribute('rotation', this.el.getAttribute('rotation'))
+       }
+       this.prevPosition = this.el.object3D.position
+       this.prevRotation = this.el.object3D.rotation
+
+      } else {
+       this.target.setAttribute('visible', 'false')
+        this.prevPosition = null;
+        this.prevRotation = null;
+      }
+   }
+ })
+	    </script>
     </head>
     <body>
 
@@ -60,7 +91,7 @@
 
             <a-marker id="marker1" type='barcode' value='0' video-vidhandler material arjs-anchor arjs-hit-testing>
                 <!--<a-box position='0 0 0' material='color: red;'></a-box>-->
-                <a-plane scale = "5.3 3 1" position='0 0 0' rotation="-90 0 0" material='transparent:true;src:#invitation' controls></a-plane>
+                <a-plane scale = "5.3 3 1" position='0 0 0' rotation="0 0 0" material='transparent:true;src:#invitation' controls></a-plane>
             </a-marker>
    
             
