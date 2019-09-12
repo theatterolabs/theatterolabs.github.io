@@ -35,7 +35,7 @@
 	    
 	     AFRAME.registerComponent("listener", {
     init: function() {
-      this.target = document.querySelector("#invitation");
+      this.target = document.querySelector("#vid");
       this.prevPosition = null;
       this.prevRotation = null;
     },
@@ -63,15 +63,15 @@
 	  
   </head>
   <body>
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    
+        <a-scene id="scene" arjs='trackingMethod: best; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;' vr-mode-ui="enabled: false" ar-template >
 	<a-assets>
                 <video preload="none" id="invitation" response-type="arraybuffer" loop="false" src="https://theatterolabs.github.io/modi.mp4" crossorigin webkit-playsinline playsinline controls>
     	</a-assets>
 
     <!-- Using the asset management system. -->
    
-		<a-anchor id="marker1" type='barcode' value='5' video-vidhandler smoothing='true' listner>
-           <a-video id = "vid" rotation = "-90 0 0" scale="9 7 1" position="0 .5 0"src="#invitation">
+		<a-anchor id="marker1" type='barcode' value='0' video-vidhandler smoothing='true' listner>
+           <a-video id = "vid" rotation = "-90 0 0" scale="9 7 1" position="0 .5 0" src="#invitation">
       <video scale= "1 1 1" src="#source"></video></a-video>
     </a-anchor>
     <a-entity camera></a-entity>
