@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title></title>
+<style>
+
+body {
+    background-color: #000000;
+	top:0;
+}
+.button {
+    position: absolute;
+    bottom: 0px;
+	width:97%;
+	text-align: center;
+	z-index: 100;
+	margin:0;
+	overflow:auto; 
+	overflow-x: hidden;
+}
+
+video { 
+	position: fixed; right: 0; bottom: 0;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto; z-index: -100;
+}
+
+canvas { 
+	position: fixed; right: 0; bottom: 0;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto; z-index: -100;
+}
+
+
+</style>
+</head>
+<body>
+<div style="width:100%; text-align:center;">
+	<canvas id="webgl" width="400" height="300"  style="position: absolute; z-index: 10;"></canvas>
+	<canvas id="overlay2" width="400" height="300"  style="display:none;"></canvas>	
+	<video width="400" height="300"  id="DeformVid" autoplay playsinline></video>
+<div class="button">
+<table border="0" align="center" style="color:#ffffff; text-align: center; width: 600px;">
+<tr>
+<td><img id="unwell" width="50" src="data/buttons/unwell.png" onclick="fd.switchDeformedFace('unwell');" /><br />Unwell</td>
+<td><img id="inca" width="50" src="data/buttons/inca.png" onclick="fd.switchDeformedFace('inca');" /><br />Inca</td>
+<td><img id="cheery" width="50" src="data/buttons/cheery.png" onclick="fd.switchDeformedFace('cheery');" /><br />Cheery</td>
+<td><img id="dopey" width="50" src="data/buttons/dopey.png" onclick="fd.switchDeformedFace('dopey');" /><br />Dopey</td>
+<td><img id="longface" width="50" src="data/buttons/longface.png" onclick="fd.switchDeformedFace('longface');" /><br />Longface</td>
+<td><img id="lucky" width="50" src="data/buttons/lucky.png" onclick="fd.switchDeformedFace('lucky');" /><br />Lucky</td>
+<td><img id="overcute" width="50" src="data/buttons/overcute.png" onclick="fd.switchDeformedFace('overcute');" /><br />Overcute</td>
+<td><img id="aloof" width="50" src="data/buttons/aloof.png" onclick="fd.switchDeformedFace('aloof');" /><br />Aloof</td>
+<td><img id="evil" width="50" src="data/buttons/evil.png" onclick="fd.switchDeformedFace('evil');" /><br />Evil</td>
+<td><img id="artificial" width="50" src="data/buttons/artificial.png" onclick="fd.switchDeformedFace('artificial');" /><br />Artificial</td>
+</tr>
+</table>
+</div>
+</div>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/clmtrackr.min.js"></script>
+<script type="text/javascript" src="js/model_pca_20_svm.js"></script>
+<script type="text/javascript" src="js/webgl-utils.js"></script>
+<script type="text/javascript" src="js/face_deformer.js"></script>
+<script type="text/javascript" src="js/facedeformation.js"></script>
+</body>	
+</html>

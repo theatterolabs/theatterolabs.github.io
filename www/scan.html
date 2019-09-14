@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title></title>
+<style>
+html, body {
+    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.video {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+}
+.status {
+    position: fixed; left: 10px;
+    width: 30%; z-index: -100;
+    margin-top: 10px;
+    font-size: 18px; 
+	text-align:left; 
+	color: yellow; 
+	font-weight: bold;
+}
+.predictions {
+    position: fixed; left: 10px; 
+    width: 30%; height: 50%; z-index: -100;
+	margin-top: 35px;
+	text-align:left;  
+	color: yellow; 
+	font-weight: bold;
+}
+.pred-container {
+    margin-bottom: 20px;
+}
+.pred-container > div {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+}
+.row {
+    display: table-row;
+}
+.cell {
+    display: table-cell;
+    padding-right: 20px;
+}
+</style>
+</head>
+<body>
+<video class="video" width="100%" height="100%" id="video" autoplay playsinline></video>
+<div id="status" class="status"></div>
+<div id="AiPredictions" class="predictions"></div>
+<script src="js/mobilenet.js"></script>
+</body>	
+</html>
