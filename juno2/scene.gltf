@@ -1,0 +1,598 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        11.424010276794434,
+        84.835281372070312,
+        31.738950729370117
+      ],
+      "min": [
+        -157.76190185546875,
+        -64.887901306152344,
+        -30.849380493164062
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 233832,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        0.99999970197677612,
+        0.99999982118606567,
+        1,
+        1
+      ],
+      "min": [
+        -0.99999982118606567,
+        -0.99999922513961792,
+        -0.99999982118606567,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        3.9920001029968262,
+        0.99199998378753662
+      ],
+      "min": [
+        -0.2595818042755127,
+        -3.5219988822937012
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 155888,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        0.99949997663497925,
+        0.99949997663497925
+      ],
+      "min": [
+        0.00050000002374872565,
+        0.014927079901099205
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 311776,
+      "componentType": 5126,
+      "count": 19486,
+      "max": [
+        0.99949997663497925,
+        0.99949997663497925
+      ],
+      "min": [
+        0.00050000002374872565,
+        0.014927079901099205
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 109890,
+      "max": [
+        19485
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 467664,
+      "componentType": 5126,
+      "count": 2292,
+      "max": [
+        8.7437372207641602,
+        82.532699584960938,
+        -29.432390213012695
+      ],
+      "min": [
+        -155.45930480957031,
+        -62.114261627197266,
+        -33.091049194335938
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 495168,
+      "componentType": 5126,
+      "count": 2292,
+      "max": [
+        1,
+        1,
+        0
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 311776,
+      "componentType": 5126,
+      "count": 2292,
+      "max": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 467664,
+      "componentType": 5126,
+      "count": 2292,
+      "max": [
+        0.31167501211166382,
+        0.83107692003250122
+      ],
+      "min": [
+        0.00050000002374872565,
+        0.51511430740356445
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 486000,
+      "componentType": 5126,
+      "count": 2292,
+      "max": [
+        1.0277780294418335,
+        1
+      ],
+      "min": [
+        -0.23240390419960022,
+        -0.52999997138977051
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 439560,
+      "componentType": 5125,
+      "count": 5832,
+      "max": [
+        2291
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "akumar.arjun (https://sketchfab.com/akumar.arjun)",
+      "license": "COPYRIGHT TO akumar.arjun",
+      "source": "https://sketchfab.com/3d-models/juno2-9d53f63724164cd3ac36e10bc957e05b",
+      "title": "Juno2"
+    },
+    "generator": "Sketchfab-6.82.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 462888,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 504336,
+      "byteOffset": 462888,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 522672,
+      "byteOffset": 967224,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 348448,
+      "byteOffset": 1489896,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1838344,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/FABRIC_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/FABRIC_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/FABRIC_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "FABRIC",
+      "normalTexture": {
+        "index": 2,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0.22122713414634146,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 1
+        },
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "BLACK",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.64000000000000001,
+          0.64000000000000001,
+          0.64000000000000001,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.55278640450004202
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "FABRIC-material",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BLACK-material",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11
+          },
+          "indices": 12,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1.3435899999999999e-07,
+        -1,
+        0,
+        0,
+        1,
+        -1.3435899999999999e-07,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "RootNode__gltf_orientation_matrix_"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.017130389999999999,
+        0,
+        0,
+        0,
+        0,
+        0.017130389999999999,
+        -4.4408900000000002e-16,
+        0,
+        0,
+        4.4408900000000002e-16,
+        0.017130389999999999,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "RootNode__model_correction_matrix_"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1.3435899999999999e-07,
+        1,
+        0,
+        0,
+        -1,
+        -1.3435899999999999e-07,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "_e50d71eb1a14ff8ac66cf512ecc99c0_fbx"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1.6292100000000001e-07,
+        0,
+        0,
+        -1.6292100000000001e-07,
+        1,
+        0,
+        0,
+        0,
+        0.10000000000000001,
+        1
+      ],
+      "name": "Juno_2_Seater_Sofa_with_Footstool"
+    },
+    {
+      "children": [
+        9,
+        11
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        73.168880000000001,
+        -24.339040000000001,
+        33.091050000000003,
+        1
+      ],
+      "name": "Untitled"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1.90735e-06,
+        0,
+        1
+      ],
+      "name": "Juno_2_Seater_Sofa_with_Footstool_FABRIC_0"
+    },
+    {
+      "mesh": 0,
+      "name": "FABRIC-material"
+    },
+    {
+      "children": [
+        12
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1.90735e-06,
+        0,
+        1
+      ],
+      "name": "Juno_2_Seater_Sofa_with_Footstool_BLACK_0"
+    },
+    {
+      "mesh": 1,
+      "name": "BLACK-material"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
+
