@@ -10,7 +10,7 @@
 //Whether debuging is enabled or not
 var IS_DEBUG=false;
 //Whether to show fps counter or not
-var SHOW_FPS = flase;
+var SHOW_FPS =false;
 
 //The statistics object
 var stats;
