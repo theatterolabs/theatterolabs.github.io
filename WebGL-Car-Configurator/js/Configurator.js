@@ -42,7 +42,7 @@ var mManager;
 var  mTextureLoader;
 
 //The Cubemap path
-var r = "data/env/cubemap/";
+var r = "cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/env/cubemap/";
 //The cubemap file urls
 var urls = [ r + "posx.jpg", r + "negx.jpg",
              r + "posy.jpg", r + "negy.jpg",
