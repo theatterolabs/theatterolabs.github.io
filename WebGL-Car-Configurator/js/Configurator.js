@@ -10,7 +10,7 @@
 //Whether debuging is enabled or not
 var IS_DEBUG=false;
 //Whether to show fps counter or not
-var SHOW_FPS = true;
+var SHOW_FPS = flase;
 
 //The statistics object
 var stats;
@@ -256,12 +256,12 @@ function LoadAventador(config)
 	var dfCol_Alloys			= webColorToHex(config.wheel_colors.colors[0].value);
 	var dfCol_Caliper			= webColorToHex(config.caliper_colors.colors[0].value);	
 
-    var AventadorAtlas_Albedo   = LoadTextureCorrected(mTextureLoader, "data/aventador/AventadorAtlas_Albedo.png");
-    var AventadorAtlas_Normal	= LoadTextureCorrected(mTextureLoader, "data/aventador/AventadorAtlas_Normal.png");
-    var LR_Brake_Albedo         = LoadTextureCorrected(mTextureLoader, "data/aventador/LR_Brake_Albedo.png");     
-    var LR_Turn_Albedo          = LoadTextureCorrected(mTextureLoader, "data/aventador/LR_Turn_Albedo.png");      
-    var LR_Reverse_Albedo       = LoadTextureCorrected(mTextureLoader, "data/aventador/LR_Reverse_Albedo.png");   
-    var LR_Generic_Normal       = LoadTextureCorrected(mTextureLoader, "data/aventador/LR_Generic_Normal.png");  
+    var AventadorAtlas_Albedo   = LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/AventadorAtlas_Albedo.png");
+    var AventadorAtlas_Normal	= LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/AventadorAtlas_Normal.png");
+    var LR_Brake_Albedo         = LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/LR_Brake_Albedo.png");     
+    var LR_Turn_Albedo          = LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/LR_Turn_Albedo.png");      
+    var LR_Reverse_Albedo       = LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/LR_Reverse_Albedo.png");   
+    var LR_Generic_Normal       = LoadTextureCorrected(mTextureLoader, "https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/LR_Generic_Normal.png");  
 	
     //Create the necessary materials
     var Mt_Abs_Black_Gloss      = new THREE.MeshStandardMaterial( {color: 0x000000, roughness:0.0, metalness:0.0, envMap:mCubeMap} );
@@ -295,8 +295,8 @@ function LoadAventador(config)
 
     // Load a glTF resource
     gltfLoader.load(
-    // resource URL
-    'data/aventador/aventador.gltf',
+    // resource 
+    'https://cdn.jsdelivr.net/gh/theatterolabs/theatterolabs.github.io@master/WebGL-Car-Configurator/data/aventador/aventador.gltf',
     // called when the resource is loaded
     function ( gltf ) 
     {
@@ -723,7 +723,8 @@ function AddTextureSwatches(container, configEntity, onClickCallback)
 	//Loop through each entry in config entity
 	for(var i=0;i<configEntity.designs.length;i++)
 	{
-		var url="data/aventador/"+configEntity.designs[i].thumb;
+		var url="theatterolabs.github.io/WebGL-Car-Configurator/data/aventador/
+"+configEntity.designs[i].thumb;
 		//Create the texture swatch object
 		var textureSwatch = $('<li><button class="texture-swatch"><span>'+configEntity.designs[i].name+'</span></button></li>');
 		$('button',textureSwatch).css({'background-image':'url('+url+')'});
