@@ -1,0 +1,393 @@
+<style>
+        html {
+            font-size: 62.5%;
+        }
+        body {
+            background: #F7F7F7;
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            color: #2a313f;
+            font-family: "Helvetica", "Arial", sans-serif;
+            position: relative;
+        }
+        body * {
+            box-sizing: border-box;
+        }
+
+        .banner {
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            position: absolute;
+            top: 0;
+            z-index: 100;
+        }
+        .banner a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .configurator {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 5;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .configurator .color-btn-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            align-content: flex-end;
+            background: rgba(247,247, 247, 0.9);
+            width: 100%;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateY(100%);
+            pointer-events: none;
+            -webkit-transition: transform 0.25s ease-out;
+            -moz-transition: transform 0.25s ease-out;
+            -o-transition: transform 0.25s ease-out;
+            transition: transform 0.25s ease-out;
+        }
+        .configurator .color-btn-container:not(.types){
+            justify-content: center;            
+        }
+        .configurator .color-btn-container.types {
+            padding-top: 20px;
+        }
+        .configurator .color-btn-container.active {
+            transform: translateY(0);
+            -webkit-transition: transform 0.25s ease-out;
+            -moz-transition: transform 0.25s ease-out;
+            -o-transition: transform 0.25s ease-out;
+            transition: transform 0.25s ease-out;
+        }
+        .configurator .color-btn-container * {
+            pointer-events: all;
+        }
+        .type-btn {
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: block;
+            position: relative;
+            background-color: transparent;
+            border-radius: 0;
+            color: #898989;
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-decoration: none;
+            text-align: center;
+            margin: 0;
+            padding: 0 0 10px;
+            line-height: 2.2;
+            vertical-align: middle;
+            cursor: pointer;
+            box-sizing: border-box;
+            z-index: 2;
+            width: 120px;
+        }
+        .type-btn > img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .color-btn {
+            -moz-user-select: "none";
+            -ms-user-select: "none";
+            -webkit-user-select: "none";
+            user-select: "none";
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: block;
+            position: relative;
+            background-color: transparent;
+            border-radius: 0;
+            color: #898989;
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-decoration: none;
+            text-align: center;
+            margin: 0;
+            padding: 0 0 10px;
+            line-height: 2.2;
+            vertical-align: middle;
+            cursor: pointer;
+            box-sizing: border-box;
+            z-index: 2;
+            width: 100px;
+        }
+        .color-btn > img {
+            width: 100px;
+            height: auto;
+        }
+        .color-btn > span {
+            position: absolute;
+            top: 58px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            line-height: 14px;
+        }
+        .color-circle {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 10px auto 25px;
+            position: relative;
+        }
+        .save-box {
+            width: 220px;
+            display: flex;
+            height: 90px;
+            margin-left: 40px;
+        }
+        .discard,
+        .save {
+            display: block;
+            background: #fff;
+            width: 50%;
+            padding: 15px;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+        }
+        .discard:hover,
+        .save:hover {
+            background: #fdfdfd;
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+        }
+        .discard > img,
+        .save > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .save-breaker, 
+        .breaker {
+            width: 100%;
+            height: 1px;
+            background: transparent;
+            display: none;
+        }
+        .color-btn .color-circle {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0);
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+            border: 1px solid rgb(210, 210, 210);
+        }
+        .color-btn.active .color-circle {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 8px -6px rgba(0, 0, 0, 0.1), 0 18px 8px -14px rgba(0, 0, 0, 0.2);
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+        }
+        @media (min-width:1440px){
+            .save-box {
+                width: 400px;
+            }
+        }
+        @media (min-width:1920px){
+            .save-box {
+                width: 500px;
+            }
+        }
+        @media (max-width:1260px){
+            .save-box {
+                width: 100%;
+                height: 45px;
+                margin-left: 0;
+            }
+            .configurator .color-btn-container {
+                justify-content: center !important;
+                padding-top: 20px;
+            }
+            .save-breaker {
+                display: block;
+            }
+            .discard,
+            .save {
+                width: 50%;
+                padding: 15px;
+            }
+            .color-circle {
+                width: 40px;
+                height: 40px;
+                margin: 0 auto 15px;
+            }
+            .color-btn > span {
+                display: none;
+            }
+            .color-btn {
+                padding-bottom: 0;
+                margin-bottom: 0;
+                width: 60px;
+            }
+        }
+        @media (max-width:800px){
+            .type-btn {
+                width: 100px;
+            }
+            .type-btn > img {
+                width: 70px;
+            }
+        }
+        @media (max-width:640px){
+            .breaker {
+                display: block;
+            }
+        }
+        @media (min-aspect-ratio: 3/2) and (max-width:900px){
+            .type-btn > img {
+                width: 70px;
+            }
+        }
+
+        #api-frame {
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            border: 0 none;
+            outline: none;
+            background: transparent;
+            z-index: 1;
+        }
+        .iframe-hidden {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto 0 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+        .iframe-block {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            border: 0 none;
+            outline: none;
+            background: transparent;
+            z-index: 2;
+        }
+        .iframe-block.visible {
+            display: block;
+        }
+        @keyframes loader-animation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .iframe-container .iframe-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            display: block;
+            width: 300px;
+            text-align: center;
+            color: #000000;
+            font-weight: 700;
+            font-size: 2.5rem;
+            pointer-events: none;
+        }
+        .iframe-loader > div {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: #000;
+        }
+        .iframe-container .iframe-loader.hidden {
+            animation: none;
+            opacity: 0;
+            -webkit-transition: all 0.25s ease-out;
+            -moz-transition: all 0.25s ease-out;
+            -o-transition: all 0.25s ease-out;
+            transition: all 0.25s ease-out;
+        }
+        .iframe-container .iframe-mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #f2f2f2;
+            opacity: 1;
+            z-index: 10;
+            -webkit-transition: all 1.5s ease-out;
+            -moz-transition: all 1.5s ease-out;
+            -o-transition: all 1.5s ease-out;
+            transition: all 1.5s ease-out;
+        }
+        .iframe-container .iframe-mask.hidden {
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 1.5s ease-out;
+            -moz-transition: all 1.5s ease-out;
+            -o-transition: all 1.5s ease-out;
+            transition: all 1.5s ease-out;
+        }
+    </style>
