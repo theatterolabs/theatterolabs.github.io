@@ -20,11 +20,11 @@
   "env": {
     "TWILIO_ACCOUNT_SID": {
       "description": "Your Twilio account secret ID, you can find at: https://www.twilio.com/user/account",
-      "value": "ACe87790cb7c37f29b62564260484f4410"
+      "value": "xxxxx"
     },
     "TWILIO_AUTH_TOKEN": {
       "description": "Your secret Twilio Auth token, you can find at: https://www.twilio.com/user/account",
-      "value": "6adf55839fcd691c4b6349afba01210a"
+      "value": "xxxxxx"
     },
     "TWILIO_NUMBER": {
       "description": "The Twilio phone number you are using for this app. You can get one here: https://www.twilio.com/user/account/phone-numbers/incoming",
