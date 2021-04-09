@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<style>
+.grid{
+
+width:10px;
+height:10px;
+overflow:visible;
+}
+
+a {
+background-color: red;
+color: red;
+}
+
+a:visited {
+  background-color: green;
+  color: green;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+document.querySelector('button').addEventListener('click', function() {
+        html2canvas(document.querySelector('.specific'), {
+            onrendered: function(canvas) {
+                document.body.appendChild(canvas);
+            }
+        });
+    });
+</script>
+
+<div class="specific2" id="specific2"><div class="grid"><a href="https://www.w3schools.com">1</a></div><div class="grid"><a href="https://www.w3schools.com/html/">2</a></div><div class="grid"><a href="https://www.w3schools.com/css/">3</a></div><div class="grid"><a href="https://www.msnbc.com/">4</a></div><div class="grid"><a href="https://www.cnn.com">5</a></div><div class="grid"><a href="https://onlinesbi.com/">6</a></div></div>
+<button type="button" class="btn btn-default">Take a Screenshot!</button>
+</body>
+</html>
