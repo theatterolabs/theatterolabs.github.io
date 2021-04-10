@@ -1,0 +1,50 @@
+.holder{
+  width: 32px;
+  height: 32px;
+  
+}
+
+.l_and_not {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  mix-blend-mode: multiply;
+  position: absolute;
+  
+}
+
+.l_and_not:visited {
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  position: absolute;
+ 
+    
+}
+
+.l_and {
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  mix-blend-mode: multiply;
+  position: absolute;
+ 
+    
+}
+
+.l_and:visited {
+  width: 32px;
+  height: 32px;
+   background-color: white;
+  position: absolute;
+  
+       
+}
+
+.mole {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  
+  
+}
