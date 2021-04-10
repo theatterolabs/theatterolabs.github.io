@@ -1,0 +1,64 @@
+body {
+  font-family: 'Georgia', 'Arial', 'Helvetica';
+  background-color: black;
+  color: white;
+}
+
+a.l_and {
+  position: absolute;
+  width: 48;
+  height: 36;
+  background-color: black;
+  mix-blend-mode: multiply;
+}
+
+a.l_and:visited {
+  background-color: white;
+}
+
+
+a.l_and_not {
+  position: absolute;
+  width: 48;
+  height: 36;
+  background-color: white;
+  mix-blend-mode: multiply;
+}
+
+a.l_and_not:visited {
+  background-color: black;
+}
+
+a.l_overlay {
+  position: absolute;
+  width: 48;
+  height: 36;
+  opacity: 0;
+}
+
+
+td {
+  width: 48;
+  height: 36;
+  vertical-align: top;
+  padding: 0;
+}
+
+tr {
+  width: 768;
+  height: 36;
+  padding: 0;
+}
+
+table {
+  border-spacing: 0px;
+  width: 768;
+  height: 576;
+  padding: 0;
+}
+
+img.mole {
+  position: absolute;
+  width: 48;
+  height: 36;
+}
