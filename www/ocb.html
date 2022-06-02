@@ -1,0 +1,385 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<style>
+    #points {
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70px;
+  opacity: 0.9;
+   color: white;
+  font-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+
+#play {
+    display: block;
+    position: relative;
+    width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999;
+  
+}
+
+
+#background {
+  display: block;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 100vh;
+  z-index: 9998;
+  
+}
+
+#play_btn {
+  display: block;
+  position: absolute;
+  padding: 3% 0% 3% 0%;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  height: auto;
+  z-index: 9999;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  background-image: linear-gradient(to bottom, #093abf, #0d0861);
+  border-color: #82a4ee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+  
+}
+
+#play_btn:active {
+  display: block;
+  position: absolute;
+  padding: 3% 0% 3% 0%;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  height: auto;
+  z-index: 9999;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  background-image: linear-gradient(to top, #093abf, #0d0861);
+  border-color: #82a4ee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+  
+}
+
+#screen_record {
+  display: block;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  height: auto;
+  z-index: 9999;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  
+}
+
+#three {
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  opacity: 0.9;
+  color: white;
+  font-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+
+#two {
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  opacity: 0.9;
+   color: white;
+  font-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+
+#one {
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  opacity: 0.9;
+   color: white;
+  font-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+
+
+
+a-scene {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+</style>>
+
+</head>
+
+<body>
+  <!-- your content here... -->
+  <script>
+       let coin_r = document.querySelector("#coin_r");
+let coin_l = document.querySelector("#coin_l");
+let delayInMilliseconds = 1000
+let points = document.getElementById('points');
+let play = document.getElementById('play');
+let play_btn = document.getElementById('play_btn');
+
+let three = document.getElementById('three');
+let two = document.getElementById('two');
+let one = document.getElementById('one');
+
+let video = document.getElementById('video');
+
+function hidePlay() {
+  play.style.display = 'none';
+  setTimeout(function() {
+  countdown();
+}, 500);
+}
+
+<!-- Countdown -->
+function countdown() {
+   three.style.display = 'block';
+  setTimeout(function() {
+  three.style.display = 'none';
+    countdown2();
+}, 1000);
+}
+
+function countdown2() {
+   two.style.display = 'block';
+  setTimeout(function() {
+  two.style.display = 'none';
+    countdown3();
+}, 1000);
+}
+
+function countdown3() {
+   one.style.display = 'block';
+  setTimeout(function() {
+  one.style.display = 'none';
+    videoControl();
+}, 1000);
+}
+<!-- End Countdown -->
+
+<!-- Video Control -->
+function videoControl() {
+   video.play();
+  
+  setTimeout(function() {
+  one.style.display = 'none';
+    video.pause();
+   
+}, 30000);
+}
+
+<!-- End Video Control -->
+
+<!-- Coin Control-->
+
+<!--End Coin Control -->
+
+
+
+
+// Coin Right  
+AFRAME.registerComponent('random-delay1', {
+        init: function (el) {
+            // this.el points to the element the component is placed on 
+            var el = this.el;
+            let min1 = 0;
+            let max1 = 3000;
+          
+            // initial animation
+             //setAnimation(min1, max1)
+           
+               
+         
+          
+          
+
+            function setAnimation(min1, max1) {
+                // generates a random number between the set min and max
+                let delay1 = Math.floor(Math.random() * (max1 - min1 + 1)) + min1;
+                let animation1 = `property: position; delay: ${delay1}; from: 50 0 -500; to: 50 0 0; dur: 2000; easing: linear; `
+                
+                // updating the animation component with the .setAttribute function
+               
+                //code
+                el.setAttribute('visible', true)
+           
+                el.setAttribute('animation', animation1)
+                
+                
+            }
+                      
+                      
+            el.addEventListener('animationcomplete', () => {
+                setAnimation(min1, max1)
+            });
+           el.addEventListener('click', () => {
+                  coin_r.setAttribute('visible',false)
+                points.style.display = "block";
+               setTimeout(function() {
+                points.style.display = "none";
+               }, 500);
+
+            });
+            setAnimation(min1, max1)
+        }
+    });
+
+
+// End of Coin Right
+
+
+
+// Coin Left
+
+AFRAME.registerComponent('random-delay2', {
+        
+        schema: {
+            target : { type : "selector"}
+        },
+        
+        init: function (el) {
+            // this.el points to the element the component is placed on 
+            var el = this.el;
+            let min2 = 0;
+            let max2 = 3000;
+            // initial animation
+             //
+           
+         
+            setAnimation(min2, max2)
+        
+          
+
+            function setAnimation(min2, max2) {
+                // generates a random number between the set min and max
+                let delay2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+                let animation2 = `property: position; delay: ${delay2}; from: -50 0 -500; to: -50 0 0; dur: 2000; easing: linear; `
+                
+                // updating the animation component with the .setAttribute function
+            
+               
+                      el.setAttribute('visible', true)
+           
+                      el.setAttribute('animation', animation2)
+           
+             
+             }
+                          
+            el.addEventListener('animationcomplete', () => {
+                setAnimation(min2, max2)
+            });
+           el.addEventListener('click', () => {
+                  coin_l.setAttribute('visible',false)
+                points.style.display = "block";
+               setTimeout(function() {
+                points.style.display = "none";
+               }, 500);
+
+            });
+            setAnimation(min2, max2)
+             
+        }
+    });
+
+// End of Coin Left
+  </script>
+  <h1 id="points">+10</h1>
+  <div id="play">
+  
+    <img id="background" src="https://theatterolabs.github.io/play_bg.png">
+    <button id="play_btn" class="play_btn" onclick="hidePlay()">Play</button>
+    
+    <h1 id="screen_record">Screen Record<br> Your Adventure</h1>
+    
+  </div>
+  <!-- Countdown -->
+  <h1 id="three">3</h1>
+  <h1 id="two">2</h1>
+  <h1 id="one">1</h1>
+  <!-- End Countdown -->
+  
+  <a-scene cursor="rayOrigin: mouse">
+    <!-- Asset Management-->
+    <a-assets>
+      
+        <video id="video" loop muted crossorigin="anonymous" webkit-playsinline src="https://theatterolabs.github.io/ski2x.mp4" autoplay>
+        </video>
+      <img id="coin" src="https://theatterolabs.github.io/Coin.png">
+  
+      
+   </a-assets>
+    
+    <!-- Camera -->
+    <a-camera>
+      </a-camera>
+   
+    
+      <a-image id="coin_r" src="#coin" width="30" height="30" random-delay1 animation1 > </a-image>
+    
+     <a-image id="coin_l" src="#coin" width="30" height="30" random-delay2 animation2 > </a-image>
+    <!-- 360 Video -->
+    <a-videosphere src="#video" rotation="0 -90 0" loop="false">
+      </a-videosphere>
+    
+    
+  </a-scene> 
+      
+  
+    
+  
+</body>
+</html>
