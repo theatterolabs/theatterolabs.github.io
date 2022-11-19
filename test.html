@@ -4,20 +4,24 @@
   </head>
    <body id="mybody">
 
-    <iframe id="myIframe" src="https://theatterolabs.github.io/url.html" width:300 height:200></iframe>
+    <iframe id="myIframe" src=result width:300 height:200></iframe>
    
     <input type="button" value="Change site" onClick="newSite()" />
-     <script>
+    
+                                                                
+   <script>
        $.get('https://theatterolabs.github.io/url.html', function(html) {
  
 window.result = String(html.substring(116, 157));
+         var myframe = document.getElementById('myIframe');
+  myframe.src = result;
 
 
 });
 
 function newSite() {
     var myframe = document.getElementById('myIframe');
-  myframe.src = result;
+  //myframe.src = result;
   var innerDoc = myframe.contentDocument || myframe.contentWindow.document;
    console.log(innerDoc.body);
 } 
