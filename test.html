@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+   <body id="mybody">
+
+    <iframe id="myIframe" src="https://theatterolabs.github.io/url.html" width:300 height:200></iframe>
+   
+    <input type="button" value="Change site" onClick="newSite()" />
+     <script>
+       $.get('https://theatterolabs.github.io/url.html', function(html) {
+ 
+window.result = String(html.substring(116, 157));
+
+
+});
+
+function newSite() {
+    var myframe = document.getElementById('myIframe');
+  myframe.src = result;
+  var innerDoc = myframe.contentDocument || myframe.contentWindow.document;
+   console.log(innerDoc.body);
+} 
+
+     </script>
+
+  
+</body>
+  
+</html>
