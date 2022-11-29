@@ -1,0 +1,78 @@
+<head>
+  <base href="https://cdn.rawgit.com/download/polymer-cdn/1.8.0/lib/">
+  <script src="webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="polymer/polymer.html">
+  <link rel="import" href="google-signin/google-signin.html">
+</head>
+<body>
+  <x-foo></x-foo>
+
+  <dom-module id="x-foo">
+    <template>
+      <google-signin
+        id="signin"
+        client-id="533434605794-f6o4lff1jsdqdbbifa9i4csp92vbm9f9.apps.googleusercontent.com"
+        signed-in="{{signedIn}}"
+        is-authorized="{{isAuthorized}}"
+        need-additional-auth="{{needAdditionalAuth}}"
+        on-google-signin-aware-error="_handleSignInEvent"
+        on-google-signin-aware-success="_handleSignInEvent"
+        on-google-signin-offline-success="_handleSignInEvent"
+        on-google-signin-aware-signed-out="_handleSignInEvent"></google-signin>
+      <button on-tap="_disconnect">Disconnect User</button>
+      <div>signedIn: [[signedIn]]</div>
+      <div>isAuthorized: [[isAuthorized]]</div>
+      <div>needAdditionalAuth: [[needAdditionalAuth]]</div>
+      <div hidden$="[[!eventDetail]]">
+        <details>
+          <summary>Event: [[eventName]]</summary>
+          [[eventDetail]]
+        </details>
+      </div>
+    </template>
+  </dom-module>
+  <script>
+    HTMLImports.whenReady(() => {
+  "use strict";
+
+  Polymer({
+    is: 'x-foo',
+
+    properties: {
+      eventDetail: {
+        type: Object,
+        value: null },
+
+      eventName: {
+        type: String } },
+
+
+
+    listeners: {
+      'signin.is-authorized-changed': '_handleAuthChange' },
+
+
+    _handleAuthChange: function (e) {
+      console.log('isAuthorized', e.detail);
+    },
+
+    _handleSignInEvent: function (e) {
+      console.log('type', e.type, e);
+      this.eventName = e.type;
+      this.eventDetail = JSON.stringify(e.detail);
+    },
+
+    _disconnect: function () {
+      const currentUser = gapi.auth2.getAuthInstance().currentUser.get();
+      if (currentUser) {
+        console.log('disconnecting user');
+        currentUser.disconnect();
+      } else {
+        console.log('no user');
+      }
+      gapi.auth2.getAuthInstance().signOut();
+    } });
+
+});
+  </script>
+</body>
