@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+<script src="https://niutech.github.io/x-frame-bypass/x-frame-bypass.js" type="module"></script>
+  </head>
+<body>
+<iframe is="x-frame-bypass" src="https://theatterolabs.github.io/yt/test.html" id="m">
+  
+</iframe>
+<button onclick="access();">get</button>
+  <script>
+    function access() {
+   var iframe = document.getElementById("m");
+   var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+  var next = innerDoc.getElementById("m");
+  var nextinner = next.contentDocument || next.contentWindow.document;
+   console.log(nextinner.body);
+}
+
+  </script>
+</body>
+</html>
