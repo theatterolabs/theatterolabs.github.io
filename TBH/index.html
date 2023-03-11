@@ -63,5 +63,18 @@
       <div data-range="81-100" class="segment"><span></span></div>
     </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+var isInstagram = (ua.indexOf('Instagram') > -1) ? true : false;
+
+if (document.documentElement.classList ){
+	if (isInstagram) {
+		window.document.body.classList.add('instagram-browser');
+    // alert("debugging within the Instagram in-app browser");
+	}
+}
+}, false);
+    </script>
   </body>
 </html>
