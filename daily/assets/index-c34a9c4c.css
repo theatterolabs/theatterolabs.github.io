@@ -253,7 +253,7 @@ header.game .score {
 }
 
 header.game .score span {
-  background: transparent url(/assets/coin-3cfbf6ce.png) no-repeat left center;
+  background: transparent url(./assets/coin-3cfbf6ce.png) no-repeat left center;
   background-size: contain;
   display: inline-block;
   width: 100%;
@@ -358,7 +358,7 @@ header.game .menu {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-image: url(/assets/lock-9d8c5f10.png);
+  background-image: url(./assets/lock-9d8c5f10.png);
   background-size: contain;
   z-index: 4;
 }
@@ -385,7 +385,7 @@ header.game .menu {
   content: "";
   width: 100%;
   height: 15vw;
-  background: lightgray url(/assets/moneybag-n-1acd8545.png) no-repeat center center;
+  background: lightgray url(./assets/moneybag-n-1acd8545.png) no-repeat center center;
   background-size: 65%;
   position: relative;
   left: 0;
@@ -414,7 +414,7 @@ header.game .menu {
 }
 
 .reward .card--header .text {
-  background: transparent url(/assets/bolt-8c82af63.png) no-repeat center left;
+  background: transparent url(./assets/bolt-8c82af63.png) no-repeat center left;
   background-size: contain;
 }
 
@@ -482,7 +482,7 @@ header.game .menu {
 
 span.coin-score {
   padding: 0;
-  background: transparent url(/assets/coin-star-9f295a77.png) no-repeat left center;
+  background: transparent url(./assets/coin-star-9f295a77.png) no-repeat left center;
   background-size: contain;
   color: var(--coin-count-color);
 }
@@ -648,7 +648,7 @@ span.coin-score {
 }
 
 .game-card--header .status.coin-required::after {
-  background: transparent url(/assets/moneybag-70211df6.png) no-repeat center center;
+  background: transparent url(./assets/moneybag-70211df6.png) no-repeat center center;
   background-size: contain;
   content: "";
   min-width: 40px;
@@ -814,17 +814,17 @@ ul.top-three li:nth-child(2) {
 }
 
 .leader-card:nth-of-type(1) .position {
-  background: transparent url(/assets/medal-1-f057a774.png) no-repeat center center;
+  background: transparent url(./assets/medal-1-f057a774.png) no-repeat center center;
   background-size: contain;
 }
 
 .leader-card:nth-of-type(2) .position {
-  background: transparent url(/assets/medal-2-83ff24ee.png) no-repeat center center;
+  background: transparent url(./assets/medal-2-83ff24ee.png) no-repeat center center;
   background-size: contain;
 }
 
 .leader-card:nth-of-type(3) .position {
-  background: transparent url(/assets/medal-3-5dbe24e1.png) no-repeat center center;
+  background: transparent url(./assets/medal-3-5dbe24e1.png) no-repeat center center;
   background-size: contain;
 }
 
@@ -939,7 +939,7 @@ ul.top-three li:nth-child(2) {
     width: 80px;
     min-height: 6vh;
     margin-top: 35vh;
-    background: transparent url(/assets/logo-562aacd9.png) no-repeat center center;
+    background: transparent url(./assets/logo-562aacd9.png) no-repeat center center;
     background-size: contain;
     content: "";
   }
