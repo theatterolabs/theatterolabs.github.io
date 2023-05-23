@@ -1,0 +1,1056 @@
+/* NOTE: This file is generated from SCSS and any changes
+made to it may be overwritten in future updates.
+It is best to create a new `_filename.scss` for your
+updates or update the existing SCSS files so that
+they're automatically included in the next build.
+
+Dir structure followed for styles in this project is:
+
+/ - (root)
+  |
+  - css (build output, included in html)
+  |
+  - sass (sass and scss source)
+
+*/
+:root {
+  --shadow-1: 1px 3px 9px 0 rgba(0, 0, 0, 0.2);
+  --shadow-2: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --default-header-height: 10vh;
+  --body-font-size: 16px;
+  --body-font-family: junegull, sans-serif;
+  --alt-font-family: Open Sans, sans-serif;
+  --card-border-radius: 9px;
+  --coin-count-color: #E9AA42;
+  --cta-button-color: #67CC34;
+  --separator-color: #DEDFE1;
+  --active-tab-color: #E85634;
+  --inactive-tab-color: #BCBCBF;
+  --status-complete: #67CC34;
+  --score-color: #722714;
+  --boards-section-color: #F1F2F4;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html * {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+h1 span.break,
+h2 span.break,
+h3 span.break,
+h4 span.break,
+h5 span.break,
+h6 span.break {
+  display: block;
+  line-height: 1;
+}
+
+h2 .break {
+  position: relative;
+  top: -5px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font: normal normal 400 16px/1.6 "junegull", sans-serif;
+}
+
+.flex-row-spread,
+.welcome,
+header.game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.wrap,
+.game-card .wrapper,
+.tab-labels,
+.streaks .card-carousel,
+.welcome,
+header.game {
+  padding: 0 1rem;
+}
+
+/* sections of the screen
+in the order they appear */
+.ten,
+.thirteen,
+.twentytwo,
+.nine,
+.fortysix {
+  background-color: white;
+}
+
+main#game-screen {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 9fr 11fr;
+  /* // 45:55 */
+  grid-gap: 0;
+  -webkit-box-pack: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.play-now {
+  display: grid;
+  grid-template-rows: 12fr 15fr 4fr;
+  grid-gap: 0;
+  -webkit-box-pack: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
+}
+
+.more {
+  display: grid;
+  /* grid-template-rows: 9fr 46fr; */
+  grid-gap: 0;
+  -webkit-box-pack: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
+}
+
+.more>section {
+  background-color: var(--boards-section-color);
+}
+
+.boards,
+.fortysix {
+  height: 56vh;
+}
+
+/* at least the top sections of the grid layout need a fixed height
+definition for all the other sections to render proportionally */
+header.game,
+.ten {
+  height: 10vh;
+}
+
+.nine {
+  height: 9vh;
+}
+
+header.game nav,
+header.game .logo {
+  --max-size: 80px;
+  display: block;
+  max-width: var(--max-size);
+  max-height: var(--max-size);
+  position: relative;
+}
+
+header.game nav .burger {
+  --min-size: 50px;
+  --max-size: 80px;
+  display: block;
+  position: relative;
+  width: var(--min-size);
+  height: var(--min-size);
+  max-width: var(--max-size);
+  max-height: var(--max-size);
+  border-radius: 100%;
+  padding: 5px;
+  -webkit-box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-2);
+  text-align: center;
+}
+
+header.game nav .burger .button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: var(--card-header-bg);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EDB14F), to(#F5D5A0));
+  background: -o-linear-gradient(#EDB14F 0, #F5D5A0 100%);
+  background: linear-gradient(#EDB14F 0, #F5D5A0 100%);
+  border-color: #EDB14F;
+  border-width: 2px;
+  border-style: solid;
+}
+
+header.game nav .burger img {
+  width: 90%;
+  height: 90%;
+  margin-top: 2px;
+}
+
+header.game .logo {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+header.game .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+header.game .score {
+  color: var(--score-color);
+  background-color: var(--coin-count-color);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #EDB14F), to(#F5D5A0));
+  background: -o-linear-gradient(#EDB14F 0, #F5D5A0 100%);
+  background: linear-gradient(#EDB14F 0, #F5D5A0 100%);
+  min-height: 1rem;
+  border-radius: 20px;
+  padding: 0.2rem 0.4rem;
+  padding-left: 0;
+  position: relative;
+  -webkit-box-shadow: 0 2px 0 2px #EDB14F;
+  box-shadow: 0 2px 0 2px #EDB14F;
+  text-shadow: 0 2px 1px hsla(0, 100%, 100%, 0.4);
+  font-family: "Open sans", sans-serif;
+  font-weight: 800;
+  font-size: larger;
+}
+
+header.game .score span {
+  background: transparent url(/assets/coin-3cfbf6ce.png) no-repeat left center;
+  background-size: contain;
+  display: inline-block;
+  width: 100%;
+  padding-left: 2.5rem;
+  position: inherit;
+  left: -15px;
+}
+
+header.game .menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.welcome {
+  height: 10vh;
+  background: -o-linear-gradient(320deg, #E85634, #E96C36);
+  background: linear-gradient(130deg, #E85634, #E96C36);
+  color: white;
+}
+
+.welcome .user-avatar img {
+  height: 80px;
+  border-radius: 100%;
+}
+
+.welcome h3 {
+  color: black;
+}
+
+.streaks {
+  height: 16vh;
+  width: 100vw;
+}
+
+.streaks .card-carousel {
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  gap: clamp(0.5rem, 3vw, 1rem);
+  grid-template-rows: 1fr;
+  grid-template-columns: 7fr repeat(2, 2fr);
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+._card,
+.game-card,
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border-radius: var(--card-border-radius, 20px);
+  overflow: hidden;
+  background-color: white;
+  -webkit-box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-1);
+}
+
+.streaks .card {
+  max-height: 18vh;
+}
+
+.card.streak-day {
+  padding: 0;
+  overflow: unset;
+}
+
+.card.streak-day-locked::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: var(--card-border-radius);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.card.streak-day-locked::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-image: url(/assets/lock-9d8c5f10.png);
+  background-size: contain;
+  z-index: 4;
+}
+
+.card.coin {
+  --min-size: 18vw;
+  --max-size: 150px;
+  min-height: var(--min-size);
+  min-width: var(--min-size);
+  max-height: var(--max-size);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-flow: column-reverse nowrap;
+  flex-flow: column-reverse nowrap;
+  -webkit-box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-2);
+  margin: auto;
+}
+
+.card.coin::after {
+  content: "";
+  width: 100%;
+  height: 15vw;
+  background: lightgray url(/assets/moneybag-n-1acd8545.png) no-repeat center center;
+  background-size: 65%;
+  position: relative;
+  left: 0;
+}
+
+.card--header {
+  padding: 0;
+  text-align: center;
+  min-height: 20px;
+  line-height: 8vw;
+  font-size: clamp(12px, 3.6vw, 24px);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  color: white;
+  background-color: var(--card-header-bg);
+  background-image: -o-linear-gradient(320deg, #E85634, #E96C36);
+  background-image: linear-gradient(130deg, #E85634, #E96C36);
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.card--header span {
+  padding-left: 5vw;
+}
+
+.reward .card--header .text {
+  background: transparent url(/assets/bolt-8c82af63.png) no-repeat center left;
+  background-size: contain;
+}
+
+.card--content {
+  padding: clamp(3px, 1vw, 12px);
+  padding-top: 0.8rem;
+  padding-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card--content .content-wrap {
+  padding: 6px;
+  padding-left: 10px;
+  padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  place-content: center space-between;
+  font-family: "Open Sans", sans-serif;
+}
+
+.card--content p {
+  margin-bottom: 6px;
+  font-size: 1.8vw;
+}
+
+.card--content p,
+.card--content button {
+  line-height: 1.2;
+  width: 100%;
+}
+
+.card--content button {
+  font-size: 2.1vw;
+  background-color: var(--cta-button-color);
+  padding: 7px 4px;
+  border: 0 none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 400px) {
+  .card--content button {
+    font-size: 1.8vw;
+  }
+}
+
+.coin .card--header {
+  color: var(--coin-count-color);
+  background-color: white;
+  background-image: none;
+  text-shadow: none;
+  text-align: center;
+  line-height: clamp(20px, 4vw, 24px);
+  font-size: clamp(12px, 3.3vw, 18px);
+}
+
+span.coin-score {
+  padding: 0;
+  background: transparent url(/assets/coin-star-9f295a77.png) no-repeat left center;
+  background-size: contain;
+  color: var(--coin-count-color);
+}
+
+.streaks span.coin-score {
+  padding-left: 4vw;
+  background-size: 3.3vw;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+}
+
+.leader-card span.coin-score,
+.runner-up-card span.coin-score,
+.status span.coin-score {
+  padding-left: 1.2rem;
+}
+
+.status span.coin-score {
+  color: #FFF274;
+}
+
+.tab-labels {
+  height: 9vh;
+  display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.tab-wrapper {
+  height: 56vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+.tab-wrapper-leaderboard {  
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+
+.tab-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  place-content: center center;
+  border-radius: 30px;
+  background-color: white;
+  -webkit-box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-2);
+  width: 100%;
+  max-height: 42px;
+  line-height: 5vw;
+  font-size: clamp(11px, 3.3vw, 18px);
+}
+
+.tab-container label.tab-label {
+  display: inline-block;
+  text-align: center;
+  color: var(--inactive-tab-color);
+  margin: 2vw 0;
+  -webkit-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+
+.tab-container label.tab-label+label.tab-label {
+  border-left: 1px solid var(--separator-color);
+}
+
+.tab-container label.tab-label.active {
+  color: var(--active-tab-color);
+}
+
+.tab-panes {
+  height: 56vh;
+  position: relative;
+}
+
+.tab-pane,
+.tab-control+.tab-pane {
+  display: none;
+  opacity: 0;
+  /* padding-top: 10px; */
+  padding-bottom: 3rem;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.tab-control {
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateX(-300vw);
+  -ms-transform: translateX(-300vw);
+  transform: translateX(-300vw);
+}
+
+.tab-control:checked+.tab-pane {
+  display: block;
+  position: relative;
+  opacity: 1;
+  z-index: 2;
+}
+
+.game-card {
+  --min-size: 30vw;
+  max-width: 100%;
+  color: black;
+  margin: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.game-card h2 {
+  margin: 2vw 0;
+  font-size: 5.85vw;
+  font-weight: 300;
+}
+
+.game-card h2 span {
+  color: var(--active-tab-color);
+}
+
+.game-card .game-icon {
+  --min-game-icon-size: 20vw;
+  display: inline-block;
+  width: var(--min-game-icon-size);
+  height: var(--min-game-icon-size);
+  margin-bottom: 1rem;
+}
+
+.game-card .game-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.game-card--header {
+  position: relative;
+}
+
+.game-card--header .status {
+  position: absolute;
+  min-width: clamp(4rem, 30vw, 6rem);
+  right: 0;
+  top: 1rem;
+  line-height: 26px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  text-align: right;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.game-card--header .status.coin-required {
+  background-color: var(--card-header-bg);
+  background-image: -o-linear-gradient(320deg, #E85634, #E96C36);
+  background-image: linear-gradient(130deg, #E85634, #E96C36);
+  color: var(--coin-count-color);
+  text-align: right;
+}
+
+.game-card--header .status.coin-required::after {
+  background: transparent url(/assets/moneybag-70211df6.png) no-repeat center center;
+  background-size: contain;
+  content: "";
+  min-width: 40px;
+  min-height: 40px;
+  position: absolute;
+  left: -20px;
+  top: -10px;
+}
+
+.game-card.completed .game-card--header h2,
+.game-card.completed .game-card--body {
+  opacity: 0.4;
+}
+
+.game-card.completed .status {
+  background-color: var(--status-complete);
+  color: black;
+  font-size: smaller;
+}
+
+.game-card--body {
+  padding-bottom: 1rem;
+}
+
+.game-card--body .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.game-card--content {
+  padding-left: 1rem;
+  padding-right: 5rem;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  place-content: center center;
+}
+
+.game-card--content .game-description {
+  font-size: 3.6vw;
+  font-weight: 600;
+  color: #6E6D6E;
+}
+
+.game-card--content .game-tags {
+  margin-top: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  font-size: smaller;
+  font-weight: bolder;
+  color: #6E6D6E;
+}
+
+.token {
+  background-color: #F3F3F4;
+  color: #6E6D6E;
+  padding: 6px 3.6vw;
+  border-radius: 30px;
+  border: 1px solid #BCBCBF;
+  font-size: 2.5vw;
+  line-height: 1;
+}
+
+.token+.token {
+  margin-left: 6px;
+}
+
+.token.puzzle,
+.token.puzzle a {
+  color: #59c5f5;
+}
+
+.token.logic,
+.token.logic a {
+  color: #6bebb3;
+}
+
+.token a {
+  text-decoration: none;
+}
+
+ul {
+  counter-reset: leader;
+}
+ul.leaderboard-trail{
+  height: 30vh;
+  overflow-y: auto;
+}
+ul.top-three,
+ul.leaderboard-trail {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.top-three li,
+ul.leaderboard-trail li {
+  text-align: center;
+  position: relative;
+}
+
+ul.top-three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  place-content: space-evenly;
+  margin-top: 2.2rem;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1.5rem;
+}
+
+ul.top-three li:nth-child(1) {
+  -webkit-transform: scale(125%);
+  -ms-transform: scale(125%);
+  transform: scale(125%);
+  font-size: 80%;
+}
+
+ul.top-three li:nth-child(2) {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+.leader-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-top: 1.2rem;
+  line-height: 1.2;
+}
+
+.leader-card .position::before {
+  counter-increment: leader;
+}
+
+.leader-card:nth-of-type(1) .position {
+  background: transparent url(/assets/medal-1-f057a774.png) no-repeat center center;
+  background-size: contain;
+}
+
+.leader-card:nth-of-type(2) .position {
+  background: transparent url(/assets/medal-2-83ff24ee.png) no-repeat center center;
+  background-size: contain;
+}
+
+.leader-card:nth-of-type(3) .position {
+  background: transparent url(/assets/medal-3-5dbe24e1.png) no-repeat center center;
+  background-size: contain;
+}
+
+.leader-card .position {
+  display: inline-block;
+  width: 24px;
+  height: 50px;
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.leader-card .player-name {
+  margin-top: 0.5rem;
+}
+
+.leader-card img {
+  --leader-avatar-size: 60px;
+  width: var(--leader-avatar-size);
+  height: var(--leader-avatar-size);
+  border-radius: 100%;
+}
+
+.runner-up-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  place-content: center space-between;
+  width: 100%;
+  max-width: 95%;
+  margin: auto;
+  height: 3rem;
+  padding: 0.7rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.runner-up-card:first-of-type::before {
+  counter-set: leader 4;
+}
+
+.runner-up-card::before {
+  width: 20px;
+  line-height: 26px;
+  position: absolute;
+  left: 15px;
+  counter-increment: leader;
+  /* content: counter(leader); */
+}
+
+.runner-up-card div:first-child {
+  width: 8%;
+  min-width: 35px;
+}
+
+.runner-up-card .player-avatar {
+  width: 10%;
+  min-width: 30px;
+  margin: 0 10px;
+}
+
+.runner-up-card .player-name {
+  width: 70%;
+  text-align: left;
+}
+
+.runner-up-card img {
+  height: 100%;
+  border-radius: 100%;
+}
+
+.runner-up-card.you::after {
+  height: 100%;
+  width: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  background-color: #E85634;
+}
+
+@media screen and (orientation: landscape) {
+  main#game-screen {
+    display: none;
+  }
+
+  body::after,
+  body::before {
+    display: block;
+    margin: auto;
+  }
+
+  body::after {
+    width: 400px;
+    min-height: 30vh;
+    margin-top: 5vh;
+    text-align: center;
+    color: rgba(150, 150, 150, 0.5);
+    content: "This game is only supported on portrait orientation mobile devices.";
+  }
+
+  body::before {
+    width: 80px;
+    min-height: 6vh;
+    margin-top: 35vh;
+    background: transparent url(/assets/logo-562aacd9.png) no-repeat center center;
+    background-size: contain;
+    content: "";
+  }
+}
+
+/* Hide scrollbars
+*/
+.tab-pane {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.tab-pane::-webkit-scrollbar {
+  /* Chrome Safari and Opera */
+  display: none;
+}
+
+
+
+
+
+/* Overlay Styles */
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0.7;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+}
+
+/* Popup */
+.popup {
+  background: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  width: 80%;
+  margin: auto 10%;
+  border-radius: var(--card-border-radius, 20px);
+  -webkit-box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-1);
+}
+
+.popup .popup-inner {
+  position: relative;
+}
+
+.popup .popup-inner input.s3-btn-close {
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
+  background: #ffffff;
+  border: solid 2px white;
+  color: #e66234;
+  cursor: pointer;
+  border-radius: 15px;
+  outline: none;
+  padding: 3px 8px;
+  font-size: 18px;
+
+}
+
+.popup-heading {
+  padding: 0;
+  text-align: center;
+  min-height: 20px;
+  line-height: 8vw;
+  font-size: clamp(14px, 3.5vw, 20px);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  color: white;
+  background-color: var(--card-header-bg);
+  background-image: -o-linear-gradient(320deg, #E85634, #E96C36);
+  background-image: linear-gradient(130deg, #E85634, #E96C36);
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.popup-content {
+  padding: 1rem;
+}
+
+.popup-content .card.coin {
+  max-width: 22vw;
+}
+
+.popup-content .card.coin::after {
+  height: 20vw;
+}
+
+.popup-content span.coin-score {
+  padding-left: 5vw;
+}
+
+.popup-content button {
+  font-size: clamp(11px, 3vw, 16px);
+  background-color: var(--cta-button-color);
+  padding: 7px 15px;
+  border: 0 none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 20px auto 0;
+  display: block;
+}
