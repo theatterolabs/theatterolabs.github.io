@@ -70,25 +70,7 @@ const App: React.FC = () => {
         pageId: '/videoCrop',
         host: 'smartContent',
       }
-/*
-      try {
-        await fetch('https://service-fdxdzlbf-1251316161.bj.apigw.tencentcs.com/release/MmediaAccessReport', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-      } catch (e) {
-        console.log(e)
-      }
-    }
 
-    if (process.env.NODE_ENV === 'production') {
-      request()
-    }
-  }, [pathname, setCookie])
-*/
   return (
     <>
       <Header />
