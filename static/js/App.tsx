@@ -50,7 +50,7 @@ const App: React.FC = () => {
   const uuidRef = useRef(cookies['uuid'])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+   // window.scrollTo(0, 0)
 
     if (!uuidRef.current) {
       const uuid = uuidv4()
@@ -66,11 +66,11 @@ const App: React.FC = () => {
     async function request() {
       const data = {
         token: 'gv#ffq09Jvn',
-        accessSession: uuidRef.current,
-        pageId: pathname,
+        accessSession: '1aa943dd-52cb-460a-921d-46818b99c02c',
+        pageId: '/videoCrop',
         host: 'smartContent',
       }
-
+/*
       try {
         await fetch('https://service-fdxdzlbf-1251316161.bj.apigw.tencentcs.com/release/MmediaAccessReport', {
           method: 'POST',
@@ -88,7 +88,7 @@ const App: React.FC = () => {
       request()
     }
   }, [pathname, setCookie])
-
+*/
   return (
     <>
       <Header />
