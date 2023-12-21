@@ -1,0 +1,22 @@
+$primary-color: #2f80ed;
+$secondary-color: #08c4fe;
+
+$body-color: #181818;
+$body-color-reverse: #f3f3f3;
+
+$back-color-1: #1e1e1e;
+$back-color-2: #2a2a2a;
+$back-color-3: #353535;
+$back-color-4: #454545;
+$back-color-5: #555555;
+
+$primary-color-reverse-1: mix($primary-color, $body-color-reverse, 90);
+$primary-color-reverse-2: mix($primary-color, $body-color-reverse, 70);
+
+$text-color: #f0f0f0;
+$text-color-1: mix($text-color, $body-color, 80);
+$text-color-2: mix($text-color, $body-color, 60);
+$text-color-3: mix($text-color, $body-color, 40);
+$text-color-4: mix($text-color, $body-color, 30);
+$text-color-reverse: #151515;
+$text-color-reverse-1: mix($text-color-reverse, $body-color-reverse, 80);
