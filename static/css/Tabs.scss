@@ -1,0 +1,48 @@
+@import '~styles/index.scss';
+
+$tab-line-width: 2px;
+
+.Tabs {
+  background-color: inherit;
+
+  &-nav {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    border-bottom: $tab-line-width solid $back-color-3;
+    z-index: 1;
+
+    &-item {
+      position: relative;
+      padding: 12px 20px;
+      background-color: inherit;
+      border: none;
+      outline: none;
+      color: inherit;
+      font-size: $font-size-root;
+      font-weight: $font-weight-3;
+      transition: $transition-duration;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: $tab-line-width;
+        background-color: transparent;
+        transition: $transition-duration;
+      }
+
+      &.active {
+        color: $primary-color-reverse-1;
+        font-weight: $font-weight-3;
+
+        &::before {
+          background-color: $primary-color-reverse-1;
+        }
+      }
+    }
+  }
+}

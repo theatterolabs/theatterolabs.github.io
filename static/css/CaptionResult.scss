@@ -1,0 +1,39 @@
+@import '~styles/index.scss';
+
+$line-height: $font-size-1 * 1.5;
+
+.CaptionResult {
+  display: grid;
+  gap: 2rem 1.5rem;
+
+  &-key {
+    font-weight: $font-weight-2;
+    text-align: left;
+
+    .loading & {
+      width: 5rem;
+      height: $line-height;
+
+      @include shining-skeleton;
+    }
+  }
+
+  &-value {
+    .loading & {
+      position: relative;
+      height: $line-height * 4;
+
+      @include shining-skeleton;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: $font-size-1 * 1.5;
+        width: $font-size-1 * 1.5 * 4;
+        background-color: $back-color-2;
+      }
+    }
+  }
+}

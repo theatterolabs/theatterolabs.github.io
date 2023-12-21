@@ -1,0 +1,48 @@
+@import '~styles/index.scss';
+
+.Uploader {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: stretch;
+  background-color: $back-color-2;
+  border: 1px dashed $back-color-5;
+  transition: $transition-duration;
+  cursor: pointer;
+
+  &::before {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 44px;
+    transform: translate(-50%, -50%);
+    color: $back-color-5;
+    font-size: 40px;
+    transition: $transition-duration;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border: 1px dashed $primary-color;
+
+    &::before {
+      color: $primary-color;
+    }
+  }
+
+  &-input {
+    display: none;
+  }
+
+  &-message {
+    padding: 0.6rem 1rem;
+    font-size: $font-size-1;
+    color: $text-color-2;
+    border-top: 1px solid $back-color-3;
+    width: 100%;
+    text-align: center;
+  }
+}

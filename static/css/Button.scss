@@ -1,0 +1,58 @@
+@import '~styles/index.scss';
+
+.Button {
+  position: relative;
+  box-sizing: content-box;
+  padding: 0.5rem 1rem;
+  min-height: 18px;
+  min-width: 2em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $primary-color;
+  border-radius: $radius-default;
+  font-size: $font-size-root;
+  font-weight: $font-weight-2;
+  transition: $transition-duration;
+  cursor: pointer;
+  outline: none;
+
+  &.loading {
+    pointer-events: none;
+  }
+
+  &.primary {
+    color: inherit;
+    background-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color-reverse-1;
+      border-color: $primary-color-reverse-1;
+    }
+  }
+
+  &.outline {
+    color: $primary-color;
+    background-color: $body-color;
+
+    &:hover {
+      color: $text-color-reverse;
+      background-color: $primary-color;
+    }
+  }
+
+  &-cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+
+    .loading & {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import '~styles/index.scss';
+
+.Home {
+  width: 100%;
+
+  &-banner {
+    height: calc(100vh - #{$footer-height});
+    width: 100vw;
+    background-size: cover;
+  }
+}

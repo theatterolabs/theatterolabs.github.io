@@ -1,0 +1,235 @@
+@import '~styles/index.scss';
+
+$music-size: 170px;
+
+.VoiceCloning {
+  &-banner {
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+    display: flex;
+
+    justify-content: flex-end;
+
+    &-content {
+      width: 50rem;
+      max-width: 100%;
+      padding: 15vh 0 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+      text-align: left;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+
+    &-tab{
+      font-size: 2rem;
+      cursor: pointer;
+      caret-color: transparent;
+
+      span{
+        color:#999999;
+      }
+      .active{
+        color:#ffffff;
+      }
+    }
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($music-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $music-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $body-color;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+
+    &-title {
+      margin: 0 0 0.8em;
+      font-size: $font-size-3;
+      font-weight: $font-weight-3;
+    }
+  }
+
+  &-preview {
+    audio {
+      width: 100%;
+    }
+  }
+
+  &-formitem{
+    padding:1.2rem 0;
+    font-size:16px;
+    display: flex;
+    align-items: center;
+
+    &-left{
+      width: 130px;
+      text-align: right;
+    }
+
+    &-text{
+      margin-left:20px;
+      height:25px;
+      width: 202px;
+      padding:0 10px;
+      box-sizing: border-box;
+    }
+    &-right{
+      position: relative;
+      margin-left:20px;
+    }
+
+    &-textarea{
+      height:200px;
+      width: 202px;
+      padding:10px;
+      box-sizing: border-box;
+      display: block;
+    }
+    &-radio{
+      margin:0 5px 0 0;
+    }
+    &-select{
+      margin-left:20px;
+      height:30px;
+      width: 202px;
+      padding:0 10px;
+      box-sizing: border-box;
+    }
+
+    &-upload{
+      caret-color: transparent;
+      display: inline-flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 200px;
+      cursor: pointer;
+      width: 200px;
+      margin-left:20px;
+      justify-content: center;
+      position: relative;
+    }
+
+    .upload-tip{
+      font-size:12px;
+      color:#888888;
+    }
+
+
+    &-preview{
+      width: 300px;
+      height:54px;
+      position: relative;
+    }
+
+    &-del{
+      position: absolute;
+      right: -3.5rem;
+      top: 0.8rem;
+    }
+  }
+
+  .models{
+    padding-left:18px;
+  }
+
+  &-button{
+    margin-top:3rem;
+    text-align: center;
+    width: 410px;
+  }
+
+  &-result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+
+    &-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      background-color: #2a2a2a;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    &-cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #2a2a2a;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .loading & {
+        display: flex;
+      }
+
+      &-status {
+        margin: 0em;
+        font-size: $font-size-1;
+      }
+    }
+
+    &-message {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include item-uploader;
+}

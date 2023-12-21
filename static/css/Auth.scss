@@ -1,0 +1,36 @@
+@import '~styles/index.scss';
+
+.Auth {
+  height: calc(100vh - #{$footer-height});
+  width: 100vw;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+
+  &-content {
+    padding: 0 10vw 0;
+    width: 400px;
+    max-width: 100%;
+  }
+
+  &-form {
+    display: flex;
+
+    .Input {
+      flex: 1;
+    }
+  }
+
+  &-message {
+    margin: 0.6rem 0 0;
+    padding: 0 0.3rem;
+    color: $text-color-1;
+    visibility: hidden;
+
+    &.visible {
+      visibility: visible;
+    }
+  }
+}

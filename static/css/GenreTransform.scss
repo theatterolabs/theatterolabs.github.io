@@ -1,0 +1,156 @@
+@import '~styles/index.scss';
+
+$music-size: 170px;
+$genre-size: 110px;
+
+.GenreTransform {
+  &-banner {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+
+    &-content {
+      width: 50rem;
+      max-width: 100%;
+      padding: 5rem 0 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+      display: flex;
+      align-items: center;
+
+      &-tag {
+        display: inline-block;
+        margin: 4px 0 0 0.5em;
+        padding: 0 4px;
+        font-size: 0.6em;
+        border: 1px solid currentColor;
+        border-radius: 4px;
+      }
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($music-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $music-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $body-color;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &-preview {
+    audio {
+      width: 100%;
+    }
+  }
+
+  &-result {
+    position: relative;
+    padding: 1.5rem;
+    background-color: $back-color-2;
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($genre-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      display: inline-block;
+      padding: 0.5em 0.5em;
+      background-color: $back-color-3;
+      font-size: $font-size-2;
+      font-weight: $font-weight-2;
+      text-align: center;
+      transition: background-color $transition-duration;
+      cursor: pointer;
+
+      .loading & {
+        @include shining-skeleton;
+
+        color: transparent;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      &.active {
+        background-color: $primary-color;
+      }
+    }
+
+    &-cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $back-color-2;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.loading {
+        display: flex;
+      }
+
+      &-status {
+        margin: 1em;
+        font-size: $font-size-1;
+      }
+    }
+
+    &-message {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include item-uploader;
+}

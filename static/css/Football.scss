@@ -1,0 +1,88 @@
+@import '~styles/index.scss';
+
+.Football {
+  &-banner {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+
+    &-content {
+      width: 35rem;
+      max-width: 100%;
+      padding: 35vh 0 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+      text-align: left;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 3rem;
+    height: 50vh;
+  }
+
+  &-result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    height: 50vh;
+    min-height: 0;
+
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      background-color: $back-color-2;
+    }
+  }
+
+  &-type {
+    position: relative;
+    padding: 1.5rem;
+    background-color: $back-color-2;
+    overflow: auto;
+
+    &-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    &-item {
+      display: inline-block;
+      padding: 0.5em 0.5em;
+      background-color: $back-color-3;
+      font-size: $font-size-2;
+      font-weight: $font-weight-2;
+      text-align: center;
+      transition: background-color $transition-duration;
+      cursor: pointer;
+
+      &.active {
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  @include item-uploader;
+}

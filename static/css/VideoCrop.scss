@@ -1,0 +1,139 @@
+@import '~styles/index.scss';
+
+$video-size: 170px;
+
+.VideoCrop {
+  &-banner {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+
+    &-content {
+      width: 35rem;
+      max-width: 100%;
+      padding: 5vh 0 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+      text-align: left;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($video-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $video-size + 50;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+
+      video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background-color: $back-color-2;
+        user-select: none;
+      }
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    height: 50vh;
+
+    &-title {
+      margin: 0 0 0.8em;
+      font-size: $font-size-3;
+      font-weight: $font-weight-3;
+    }
+  }
+
+  &-preview,
+  &-result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+
+    &-wrap {
+      position: relative;
+      flex: 1;
+      height: 50vh;
+      min-height: 0;
+      background-color: $back-color-2;
+    }
+
+    video {
+      height: 99.9%;
+      width: 100%;
+      object-fit: contain;
+      background-color: $back-color-2;
+    }
+  }
+
+  &-result {
+    &-cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $back-color-2;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .loading & {
+        display: flex;
+      }
+
+      &-status {
+        margin: 1em;
+        font-size: $font-size-1;
+      }
+    }
+
+    &-message {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include item-uploader;
+}

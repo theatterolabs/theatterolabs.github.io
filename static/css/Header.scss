@@ -1,0 +1,227 @@
+@import '~styles/index.scss';
+
+$nav-back-color: $body-color;
+$submenu-height: 9rem;
+
+.Header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    z-index: -1;
+    background-color: $body-color;
+    transition: $transition-duration - 0.1;
+  }
+
+  &.expended::before {
+    height: calc(#{$submenu-height} + #{$header-height-total} + 5px);
+  }
+
+  &-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'head nav lang';
+    gap: 2.5rem;
+    height: $header-height;
+    padding: $header-padding-top 5vw 0;
+    color: $text-color;
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0));
+  }
+
+  &-head {
+    grid-area: head;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &-logo {
+    height: 36px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &-title {
+    height: 100%;
+    font-size: $font-size-2;
+    font-weight: $font-weight-3;
+
+    &-link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-nav {
+    grid-area: nav;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+
+    &-holder {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 0.5em;
+      background-color: transparent;
+      border: none;
+      color: $text-color;
+      font-size: $font-size-2;
+      font-weight: $font-weight-3;
+      outline: none;
+      transition: $transition-duration;
+      cursor: pointer;
+
+      &:hover {
+        color: $text-color-1;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  &-lang {
+    grid-area: lang;
+    display: flex;
+    align-items: stretch;
+    font-size: 0;
+
+    &-divider {
+      display: flex;
+      align-items: center;
+      font-size: $font-size-root;
+      color: $text-color-2;
+    }
+
+    &-btn {
+      border: none;
+      background-color: transparent;
+      font-size: $font-size-root;
+      font-weight: $font-weight-2;
+      transition: $transition-duration;
+      color: $text-color-2;
+      cursor: pointer;
+      outline: none;
+
+      &.active {
+        color: $text-color;
+      }
+    }
+  }
+
+  &-submenu {
+    position: relative;
+    box-sizing: border-box;
+    height: 0rem;
+    transition: $transition-duration - 0.1;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background-color: transparent;
+      transition: $transition-duration;
+    }
+
+    .expended & {
+      height: $submenu-height;
+
+      &::before {
+        background-color: $back-color-2;
+      }
+    }
+
+    &-content {
+      height: 100%;
+      display: inline-block;
+      transition: $transition-duration;
+    }
+
+    &-inner {
+      display: none;
+      padding: 1rem 0 0;
+
+      &.active {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 2rem;
+      }
+    }
+
+    &-title {
+      position: relative;
+      margin: 0 0 0.6rem;
+      color: $text-color-2;
+      font-size: $font-size-1;
+
+      &.hidden {
+        display: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 115%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $back-color-2;
+      }
+    }
+
+    &-list {
+      height: 100%;
+      display: grid;
+      align-items: start;
+      align-content: start;
+      gap: 0.2rem 0.7rem;
+
+      &.column {
+        grid-auto-flow: column;
+      }
+    }
+
+    &-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      transition: $transition-duration;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.active {
+        color: $primary-color-reverse-1;
+      }
+
+      &-tag {
+        display: inline-block;
+        margin: 2px 0 0 0.5em;
+        padding: 0 2px;
+        font-size: 0.6em;
+        border: 1px solid currentColor;
+        border-radius: 2px;
+      }
+    }
+  }
+}

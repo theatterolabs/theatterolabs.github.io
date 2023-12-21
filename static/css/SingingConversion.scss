@@ -1,0 +1,133 @@
+@import '~styles/index.scss';
+
+$music-size: 170px;
+
+.SingingConver {
+  &-banner {
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+
+    &-content {
+      width: 32rem;
+      max-width: 100%;
+      padding: 0 0 15rem;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+      text-align: left;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($music-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $music-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $body-color;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+
+    &-title {
+      margin: 0 0 0.8em;
+      font-size: $font-size-3;
+      font-weight: $font-weight-3;
+    }
+  }
+
+  &-preview {
+    audio {
+      width: 100%;
+    }
+  }
+
+  &-result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+
+    &-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    &-cover {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $back-color-1;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .loading & {
+        display: flex;
+      }
+
+      &-status {
+        margin: 0em;
+        font-size: $font-size-1;
+      }
+    }
+
+    &-message {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include item-uploader;
+}

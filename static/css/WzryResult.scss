@@ -1,0 +1,29 @@
+@import '~styles/index.scss';
+
+$line-height: $font-size-1 * 1.5;
+
+.WzryResult {
+  display: grid;
+  grid-template-columns: auto 1fr ;
+  gap: 0.5rem 1.5rem;
+
+  &-key {
+    color: $text-color-2;
+    text-align: right;
+
+    .loading & {
+      width: 5rem;
+      height: $line-height;
+
+      @include shining-skeleton;
+    }
+  }
+
+  &-value {
+    .loading & {
+      height: $line-height;
+
+      @include shining-skeleton;
+    }
+  }
+}

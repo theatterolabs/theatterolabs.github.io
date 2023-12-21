@@ -1,0 +1,20 @@
+@import '~styles/index.scss';
+
+.Input {
+  padding: 0.5rem 1rem;
+  background-color: $back-color-2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $back-color-2;
+  border-radius: $radius-default;
+  color: $text-color-1;
+  font-size: $font-size-root;
+  font-weight: $font-weight-2;
+  transition: $transition-duration;
+  outline: none;
+
+  &:hover,
+  &:active {
+    background-color: $back-color-3;
+  }
+}

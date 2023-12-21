@@ -1,0 +1,9 @@
+@import '~styles/index.scss';
+
+.Tabpane {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,159 @@
+@import '~styles/index.scss';
+
+$music-size: 200px;
+
+.Lyrics {
+  &-banner {
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+
+    &-content {
+      width: 35rem;
+      max-width: 100%;
+      padding: 3rem 15rem 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($music-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $music-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $body-color;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+    }
+  }
+
+  &-main {
+    display: grid;
+    // grid-template-columns: 4fr;
+    gap: 3rem;
+    // height: 50vh;
+  }
+
+  &-result {
+    min-height: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1rem;
+    background-color: $back-color-2;
+
+    &-title {
+      margin: 0 1rem 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-placeholder {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $back-color-2;
+
+      &.loading {
+        display: flex;
+      }
+
+      &-status {
+        margin: 0.5em;
+      }
+    }
+  }
+
+  &-inputer {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-1;
+    background-color: $back-color-2;
+    cursor: default;
+
+    textarea {
+      flex: 1;
+      padding: 0.6rem;
+      border: 1px solid transparent;
+      background-color: $back-color-2;
+      color: inherit;
+      outline: none;
+      box-shadow: 0 0 0 1px transparent;
+      transition: $transition-duration;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+    }
+
+    select {
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 60px;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &-bottom {
+      width: 100%;
+      height: 40px;
+      overflow: hidden;
+
+      &-wrapper {
+        height: 80px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        transition: 0.1s;
+        transform: translateY(0%);
+
+        .uploadable & {
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}

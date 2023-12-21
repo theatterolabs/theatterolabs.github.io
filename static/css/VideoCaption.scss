@@ -1,0 +1,126 @@
+@import '~styles/index.scss';
+
+$video-size: 170px;
+
+.VideoCaption {
+  &-banner {
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    padding: map-get($padding-banner, 'xlg');
+    min-height: 80vh;
+
+    &-content {
+      width: 600px;
+      max-width: 100%;
+      padding: 12rem 0 0;
+    }
+
+    &-title {
+      margin: 0 0 1em;
+      font-size: $font-size-6;
+    }
+
+    &-description {
+      font-size: $font-size-3;
+      font-weight: $font-weight-2;
+    }
+  }
+
+  &-demo {
+    display: grid;
+    gap: 4rem;
+    padding: map-get($padding-page, 'xlg');
+    background-color: $back-color-1;
+  }
+
+  &-sample {
+    &-title {
+      margin: 0 0 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-list {
+      display: grid;
+      @include autoscale-row-list($video-size);
+      gap: 1rem;
+    }
+
+    &-item {
+      position: relative;
+      height: $video-size + 50;
+      display: inline-block;
+      font-size: 0;
+      cursor: pointer;
+
+      @include delete-icon;
+      @include item-cover;
+
+      video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        user-select: none;
+      }
+    }
+  }
+
+  &-main {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    gap: 3rem;
+    height: 50vh;
+  }
+
+  &-preview {
+    height: 100%;
+    width: 100%;
+    height: 50vh;
+    min-height: 0;
+
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      background-color: $back-color-2;
+    }
+  }
+
+  &-result {
+    min-height: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1rem;
+    background-color: $back-color-2;
+
+    &-title {
+      margin: 0 1rem 0.6em;
+      font-size: $font-size-3;
+    }
+
+    &-placeholder {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $back-color-2;
+
+      &.loading {
+        display: flex;
+      }
+
+      &-status {
+        margin: 0.5em;
+      }
+    }
+  }
+
+  @include item-uploader;
+}
